@@ -2,15 +2,18 @@ package com.gmail.realtadukoo.TB;
 
 import java.io.IOException;
 
-public class CommandHandler{
+import com.gmail.realtadukoo.TB.Enums.EnumBible;
+import com.gmail.realtadukoo.TB.Enums.EnumCmdAliases;
+
+public class CmdHandler{
 	
 	public static String[] handleCommand(String command) throws IOException{
 		if(command.startsWith("/")){
 			String[] parts = command.split(" ");
-			for(String s: EnumAliases.BIBLE.aliases()){
+			for(String s: EnumCmdAliases.BIBLE.aliases()){
 				if(parts[0].equalsIgnoreCase("/" + s)){
 					if(parts[1].equalsIgnoreCase("get")){
-						EnumBooks book = EnumBooks.fromString(parts[2]);
+						EnumBible book = EnumBible.fromString(parts[2]);
 						int chp = Integer.parseInt(parts[3]);
 						int v = Integer.parseInt(parts[4]);
 						String verse = VerseReading.getVerse(book, chp, v);

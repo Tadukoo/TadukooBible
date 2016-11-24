@@ -3,6 +3,9 @@ package com.gmail.realtadukoo.TB;
 import java.io.IOException;
 import java.util.Random;
 
+import com.gmail.realtadukoo.TB.Enums.EnumBible;
+import com.gmail.realtadukoo.TB.Enums.EnumBibleChps;
+
 public class TB{
 	
 	public static void main(String[] args){
@@ -17,7 +20,7 @@ public class TB{
 				cont = false;
 			}else{
 				try{
-					CommandHandler.handleCommand(command);
+					CmdHandler.handleCommand(command);
 				}catch(IOException e){
 					e.printStackTrace();
 				}
@@ -104,14 +107,14 @@ public class TB{
 	
 	
 	
-	public static boolean verifyVerseRef(EnumBooks book, int chp, int verse){
+	public static boolean verifyVerseRef(EnumBible book, int chp, int verse){
 		if(book == null){
 			return false;
 		}else{
-			if(EnumChps.fromString(book.bookName()).getChps().length < chp){
+			if(EnumBibleChps.fromString(book.book()).getChps().length < chp){
 				return false;
 			}else{
-				if(EnumChps.fromString(book.bookName()).getNum(chp) < verse){
+				if(EnumBibleChps.fromString(book.book()).getNum(chp) < verse){
 					return false;
 				}else{
 					return true;

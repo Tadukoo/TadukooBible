@@ -1,11 +1,11 @@
-package com.gmail.realtadukoo.TB;
+package com.gmail.realtadukoo.TB.Enums;
 
-public enum EnumAliases{
+public enum EnumCmdAliases{
 	BIBLE("Bible");
 	
 	private String[] aliases;
 	
-	private EnumAliases(String ... aliases){
+	private EnumCmdAliases(String ... aliases){
 		this.aliases = aliases;
 	}
 	

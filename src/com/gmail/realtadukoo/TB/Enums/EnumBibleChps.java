@@ -1,10 +1,10 @@
-package com.gmail.realtadukoo.TB;
+package com.gmail.realtadukoo.TB.Enums;
 
 /*
  * This enum is used to look up how many verses are in each chapter of the Bible.
  */
 
-public enum EnumChps{
+public enum EnumBibleChps{
 	GENESIS("Genesis", 31, 25, 24, 26, 32, 22, 24, 22, 29, 32, 32, 20, 18, 24, 21, 16, 27, 33, 
 			38, 18, 34, 24, 20, 67, 34, 35, 46, 22, 35, 43, 55, 32, 20, 31, 29, 43, 36, 30, 23, 
 			23, 57, 38, 34, 34, 28, 34, 31, 22, 33, 26),
@@ -180,7 +180,7 @@ public enum EnumChps{
 	// The array of verse lengths for the various chapters.
 	private int[] chps;
 	
-	private EnumChps(String book, int ... chps){
+	private EnumBibleChps(String book, int ... chps){
 		this.book = book;
 		this.chps = chps;
 	}
@@ -203,8 +203,8 @@ public enum EnumChps{
 		return chps;
 	}
 	
-	public static EnumChps fromString(String book){
-		for(EnumChps e: EnumChps.values()){
+	public static EnumBibleChps fromString(String book){
+		for(EnumBibleChps e: EnumBibleChps.values()){
 			if(e.book().equalsIgnoreCase(book)){
 				return e;
 			}
