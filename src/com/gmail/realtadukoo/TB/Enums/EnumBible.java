@@ -86,7 +86,7 @@ public enum EnumBible{
 	
 	public static EnumBible fromString(String name){
 		for(EnumBible e: EnumBible.values()){
-			if(e.book().equalsIgnoreCase(name)){
+			if(e.book().replaceAll(" ", "").equalsIgnoreCase(name.replaceAll(" ", ""))){
 				return e;
 			}
 		}

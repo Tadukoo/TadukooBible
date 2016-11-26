@@ -3,8 +3,10 @@ package com.gmail.realtadukoo.TB;
 import java.util.ArrayList;
 
 import com.gmail.realtadukoo.TB.Enums.EnumBible;
+import com.gmail.realtadukoo.TB.Enums.EnumBibleAliases;
 import com.gmail.realtadukoo.TB.Enums.EnumBibleChps;
 import com.gmail.realtadukoo.TB.Enums.EnumCmdAliases;
+import com.gmail.realtadukoo.TB.Enums.EnumTranslations;
 
 /**
  * This class will take a command and fiddle it to be the correct format for CmdHandler to 
@@ -27,7 +29,13 @@ public class CmdFiddler{
 					for(int i = 2; i < pieces.length; i++){
 						args.add(pieces[i]);
 					}
-					command = fiddleWithGet(args);
+					command = "/bible get " + fiddleForBookChpVTran(args);
+				}else if(type.equalsIgnoreCase("download")){
+					ArrayList<String> args = new ArrayList<String>();
+					for(int i = 2; i < pieces.length; i++){
+						args.add(pieces[i]);
+					}
+					command = "/bible download " + fiddleForBookChpVTran(args);
 				}
 			}
 		}
@@ -35,32 +43,43 @@ public class CmdFiddler{
 		return command;
 	}
 	
-	private static String fiddleWithGet(ArrayList<String> args){
+	private static String fiddleForBookChpVTran(ArrayList<String> args){
 		int length = args.size();
-		String book;
+		String book, tran;
 		int chp, v;
-		if(args.get(length - 1).contains(":")){
-			String chpV = args.remove(length - 1);
+		if(args.get(length - 2).contains(":")){
+			String chpV = args.remove(length - 2);
+			tran = args.remove(length - 2);
 			String[] chpAV = chpV.split(":");
 			args.add(chpAV[0]);
 			args.add(chpAV[1]);
+			args.add(tran);
+			length = args.size();
 		}
-		if(length == 5){
+		if(length == 6){
 			book = args.get(0) + args.get(1) + args.get(2);
 			chp = Integer.parseInt(args.get(3));
 			v = Integer.parseInt(args.get(4));
-		}else if(length == 4){
+			tran = args.get(5);
+		}else if(length == 5){
 			book = args.get(0) + args.get(1);
 			chp = Integer.parseInt(args.get(2));
 			v = Integer.parseInt(args.get(3));
-		}else if(length == 3){
+			tran = args.get(4);
+		}else if(length == 4){
 			book = args.get(0);
 			chp = Integer.parseInt(args.get(1));
 			v = Integer.parseInt(args.get(2));
+			tran = args.get(3);
 		}else{
 			throw new IllegalArgumentException("Invalid arguments amount.");
 		}
-		book = EnumBible.fromString(book).book();
+		EnumBible ebook = EnumBible.fromString(EnumBibleAliases.getBookFromAlias(book));
+		if(ebook == null){
+			throw new IllegalArgumentException("Book doesn't exist.");
+		}
+		book = ebook.book().replaceAll(" ", "");
+		
 		if(chp > EnumBibleChps.fromString(book).getChps().length){
 			throw new IllegalArgumentException("Chapter doesn't exist.");
 		}
@@ -68,6 +87,10 @@ public class CmdFiddler{
 			throw new IllegalArgumentException("Verse doesn't exist.");
 		}
 		
-		return "/bible get " + book + " " + chp + " " + v;
+		if(EnumTranslations.fromAbbreviation(tran) == null){
+			throw new IllegalArgumentException("Translation not found.");
+		}
+		
+		return book + " " + chp + " " + v + " " + tran;
 	}
 }

@@ -20,7 +20,7 @@ public class TB{
 				cont = false;
 			}else{
 				try{
-					CmdHandler.handleCommand(command);
+					CmdHandler.handleCommand(CmdFiddler.fiddle(command));
 				}catch(IOException e){
 					e.printStackTrace();
 				}

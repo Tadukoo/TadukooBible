@@ -205,7 +205,7 @@ public enum EnumBibleChps{
 	
 	public static EnumBibleChps fromString(String book){
 		for(EnumBibleChps e: EnumBibleChps.values()){
-			if(e.book().equalsIgnoreCase(book)){
+			if(e.book().replaceAll(" ", "").equalsIgnoreCase(book.replaceAll(" ", ""))){
 				return e;
 			}
 		}
