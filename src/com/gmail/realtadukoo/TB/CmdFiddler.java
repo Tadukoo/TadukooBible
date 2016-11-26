@@ -24,23 +24,38 @@ public class CmdFiddler{
 			if(com.equalsIgnoreCase("/" + s)){
 				com = "/bible";
 				String type = pieces[1];
+				ArrayList<String> args = new ArrayList<String>();
+				for(int i = 2; i < pieces.length; i++){
+					args.add(pieces[i]);
+				}
 				if(type.equalsIgnoreCase("get")){
-					ArrayList<String> args = new ArrayList<String>();
-					for(int i = 2; i < pieces.length; i++){
-						args.add(pieces[i]);
-					}
 					command = "/bible get " + fiddleForBookChpVTran(args);
 				}else if(type.equalsIgnoreCase("download")){
-					ArrayList<String> args = new ArrayList<String>();
-					for(int i = 2; i < pieces.length; i++){
-						args.add(pieces[i]);
-					}
 					command = "/bible download " + fiddleForBookChpVTran(args);
+				}else if(type.equalsIgnoreCase("downloadtran")){
+					command = "/bible downloadtran " + fiddleForTran(args);
+				}else if(type.equalsIgnoreCase("missing")){
+					command = "/bible missing " + fiddleForTran(args);
 				}
 			}
 		}
 		
 		return command;
+	}
+	
+	private static String fiddleForTran(ArrayList<String> args){
+		int length = args.size();
+		String tran;
+		if(length == 1){
+			tran = args.get(0);
+		}else{
+			throw new IllegalArgumentException("Invalid arguments amount.");
+		}
+		if(EnumTranslations.fromAbbreviation(tran) == null){
+			throw new IllegalArgumentException("Translation not found.");
+		}
+		
+		return tran;
 	}
 	
 	private static String fiddleForBookChpVTran(ArrayList<String> args){

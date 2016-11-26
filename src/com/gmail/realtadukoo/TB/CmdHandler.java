@@ -20,11 +20,17 @@ public class CmdHandler{
 						System.out.println(verse);
 						return new String[]{verse};
 					}else if(parts[1].equalsIgnoreCase("download")){
-						String verse = RetrieveFromSite.getVerse(EnumBible.fromString(parts[2]).book(), 
+						String verse = RetrieveFromSite.getVerse(EnumBible.fromString(parts[2]), 
 								Integer.parseInt(parts[3]), Integer.parseInt(parts[4]), 
-								"New International Version");
+								EnumTranslations.fromAbbreviation(parts[5]));
 						System.out.println(verse);
 						return new String[]{verse};
+					}else if(parts[1].equalsIgnoreCase("downloadtran")){
+						DownloadTran.run(EnumTranslations.fromAbbreviation(parts[2]));
+						return new String[]{};
+					}else if(parts[1].equalsIgnoreCase("missing")){
+						FindMissing.run(EnumTranslations.fromAbbreviation(parts[2]));
+						return new String[]{};
 					}
 				}
 			}

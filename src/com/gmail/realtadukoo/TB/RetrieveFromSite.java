@@ -6,11 +6,15 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import com.gmail.realtadukoo.TB.Enums.EnumBible;
+import com.gmail.realtadukoo.TB.Enums.EnumTranslations;
+
 public class RetrieveFromSite{
 	
-	public static String getVerse(String book, int chp, int v, String tran){
+	public static String getVerse(EnumBible ebook, int chp, int v, EnumTranslations tran){
 		String verse = null;
 		
+		String book = ebook.book();
 		book = book.toLowerCase();
 		book = book.replace(" ", "_");
 		if(book.equals("song_of_songs")){
@@ -41,12 +45,14 @@ public class RetrieveFromSite{
 			}
 			
 			if(line != null){
-				if(line.contains(tran)){
-					line = line.split(tran + "</a></span><br />")[1];
+				if(line.contains(tran.getName())){
+					line = line.split(tran.getName() + "</a></span><br />")[1];
 					line = line.split("<span class=")[0];
 					verse = line;
 					cont = false;
 				}
+			}else{
+				cont = false;
 			}
 		}
 		

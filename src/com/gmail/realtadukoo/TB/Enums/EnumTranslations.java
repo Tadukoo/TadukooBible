@@ -26,16 +26,16 @@ public enum EnumTranslations{
 	WEB("World English Bible", "WEB"),
 	YLT("Young's Literal Translation", "YLT");
 	
-	private String name;
+	private String tran;
 	private String abbreviation;
 	
 	private EnumTranslations(String name, String abbreviation){
-		this.name = name;
+		this.tran = name;
 		this.abbreviation = abbreviation;
 	}
 	
 	public String getName(){
-		return name;
+		return tran;
 	}
 	
 	public String abbreviation(){
