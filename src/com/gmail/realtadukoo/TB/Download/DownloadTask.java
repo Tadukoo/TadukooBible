@@ -1,4 +1,4 @@
-package com.gmail.realtadukoo.TB;
+package com.gmail.realtadukoo.TB.Download;
 
 import com.gmail.realtadukoo.TB.Enums.EnumTranslations;
 

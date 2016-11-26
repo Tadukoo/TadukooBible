@@ -1,4 +1,4 @@
-package com.gmail.realtadukoo.TB;
+package com.gmail.realtadukoo.TB.Program;
 
 import java.util.Scanner;
 

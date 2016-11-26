@@ -1,4 +1,4 @@
-package com.gmail.realtadukoo.TB.Enums;
+package com.gmail.realtadukoo.TB.Enums.Bible;
 
 /*
  * This enum is used to look up how many verses are in each chapter of the Bible.

@@ -2,9 +2,11 @@ package com.gmail.realtadukoo.TB;
 
 import java.io.IOException;
 
-import com.gmail.realtadukoo.TB.Enums.EnumBible;
+import com.gmail.realtadukoo.TB.Download.DownloadTran;
+import com.gmail.realtadukoo.TB.Download.RetrieveFromSite;
 import com.gmail.realtadukoo.TB.Enums.EnumCmdAliases;
 import com.gmail.realtadukoo.TB.Enums.EnumTranslations;
+import com.gmail.realtadukoo.TB.Enums.Bible.EnumBible;
 
 public class CmdHandler{
 	

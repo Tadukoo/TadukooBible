@@ -2,11 +2,11 @@ package com.gmail.realtadukoo.TB;
 
 import java.util.ArrayList;
 
-import com.gmail.realtadukoo.TB.Enums.EnumBible;
-import com.gmail.realtadukoo.TB.Enums.EnumBibleAliases;
-import com.gmail.realtadukoo.TB.Enums.EnumBibleChps;
 import com.gmail.realtadukoo.TB.Enums.EnumCmdAliases;
 import com.gmail.realtadukoo.TB.Enums.EnumTranslations;
+import com.gmail.realtadukoo.TB.Enums.Bible.EnumBible;
+import com.gmail.realtadukoo.TB.Enums.Bible.EnumBibleAliases;
+import com.gmail.realtadukoo.TB.Enums.Bible.EnumBibleChps;
 
 /**
  * This class will take a command and fiddle it to be the correct format for CmdHandler to 

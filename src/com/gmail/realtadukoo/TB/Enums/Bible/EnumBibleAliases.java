@@ -1,4 +1,4 @@
-package com.gmail.realtadukoo.TB.Enums;
+package com.gmail.realtadukoo.TB.Enums.Bible;
 
 public enum EnumBibleAliases{
 	GENESIS("Genesis", "Gen", "Ge"),

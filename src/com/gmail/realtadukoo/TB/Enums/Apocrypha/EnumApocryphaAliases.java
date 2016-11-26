@@ -1,4 +1,4 @@
-package com.gmail.realtadukoo.TB.Enums;
+package com.gmail.realtadukoo.TB.Enums.Apocrypha;
 
 public enum EnumApocryphaAliases{
 	TOBIT("Tobit", "Tobias"),

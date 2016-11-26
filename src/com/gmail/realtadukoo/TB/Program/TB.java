@@ -1,10 +1,12 @@
-package com.gmail.realtadukoo.TB;
+package com.gmail.realtadukoo.TB.Program;
 
 import java.io.IOException;
 import java.util.Random;
 
-import com.gmail.realtadukoo.TB.Enums.EnumBible;
-import com.gmail.realtadukoo.TB.Enums.EnumBibleChps;
+import com.gmail.realtadukoo.TB.CmdFiddler;
+import com.gmail.realtadukoo.TB.CmdHandler;
+import com.gmail.realtadukoo.TB.Enums.Bible.EnumBible;
+import com.gmail.realtadukoo.TB.Enums.Bible.EnumBibleChps;
 
 public class TB{
 	

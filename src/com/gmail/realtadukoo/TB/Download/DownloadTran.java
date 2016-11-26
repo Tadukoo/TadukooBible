@@ -1,12 +1,13 @@
-package com.gmail.realtadukoo.TB;
+package com.gmail.realtadukoo.TB.Download;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Properties;
 
-import com.gmail.realtadukoo.TB.Enums.EnumBible;
-import com.gmail.realtadukoo.TB.Enums.EnumBibleChps;
+import com.gmail.realtadukoo.TB.VerseReading;
 import com.gmail.realtadukoo.TB.Enums.EnumTranslations;
+import com.gmail.realtadukoo.TB.Enums.Bible.EnumBible;
+import com.gmail.realtadukoo.TB.Enums.Bible.EnumBibleChps;
 
 public class DownloadTran{
 	

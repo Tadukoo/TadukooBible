@@ -1,4 +1,4 @@
-package com.gmail.realtadukoo.TB;
+package com.gmail.realtadukoo.TB.Download;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,8 +6,8 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import com.gmail.realtadukoo.TB.Enums.EnumBible;
 import com.gmail.realtadukoo.TB.Enums.EnumTranslations;
+import com.gmail.realtadukoo.TB.Enums.Bible.EnumBible;
 
 public class RetrieveFromSite{
 	

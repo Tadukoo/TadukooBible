@@ -5,9 +5,9 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Properties;
 
-import com.gmail.realtadukoo.TB.Enums.EnumBible;
-import com.gmail.realtadukoo.TB.Enums.EnumBibleChps;
 import com.gmail.realtadukoo.TB.Enums.EnumTranslations;
+import com.gmail.realtadukoo.TB.Enums.Bible.EnumBible;
+import com.gmail.realtadukoo.TB.Enums.Bible.EnumBibleChps;
 
 public class FindMissing{
 	
@@ -21,7 +21,8 @@ public class FindMissing{
 				for(int k = 1; k <= echp.getNum(j); k++){
 					if(VerseReading.getVerse(book, j, k, tran) == null){
 						System.out.println("Missing " + book.book() + " " + j + ":" + k);
-						missing.setProperty("NIV" + count, book.book() + " " + j + ":" + k);
+						missing.setProperty(tran.abbreviation() + count, 
+								book.book() + " " + j + ":" + k);
 						count++;
 					}
 				}
