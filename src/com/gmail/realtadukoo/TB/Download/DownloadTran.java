@@ -48,9 +48,7 @@ public class DownloadTran{
 			System.out.println("bookEnd: " + bookEnd);
 			System.out.println("chpEnd: " + chpEnd);
 			threads.add(new Thread(new DownloadTask(tran, bookStart, chpStart, bookEnd, chpEnd)));
-			if(i == 8 || i == 9){
-				threads.get(i).start();
-			}
+			threads.get(i).start();
 		}
 		for(int i = 0; i < threadNum; i++){
 			try{

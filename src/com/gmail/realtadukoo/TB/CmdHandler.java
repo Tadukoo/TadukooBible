@@ -7,6 +7,7 @@ import com.gmail.realtadukoo.TB.Download.RetrieveFromSite;
 import com.gmail.realtadukoo.TB.Enums.EnumCmdAliases;
 import com.gmail.realtadukoo.TB.Enums.EnumTranslations;
 import com.gmail.realtadukoo.TB.Enums.Bible.EnumBible;
+import com.gmail.realtadukoo.TB.Minecraft.GenerateBook;
 
 public class CmdHandler{
 	
@@ -32,6 +33,10 @@ public class CmdHandler{
 						return new String[]{};
 					}else if(parts[1].equalsIgnoreCase("missing")){
 						FindMissing.run(EnumTranslations.fromAbbreviation(parts[2]));
+						return new String[]{};
+					}else if(parts[1].equalsIgnoreCase("Minecraft")){
+						GenerateBook.generateWholeTranslation(
+								EnumTranslations.fromAbbreviation(parts[2]));
 						return new String[]{};
 					}
 				}

@@ -21,7 +21,15 @@ public enum EnumCmdAliases{
 	}
 	
 	public String[] aliases(){
-		return aliases;
+		String[] a = new String[aliases.length + 1];
+		for(int i = 0; i < aliases.length + 1; i++){
+			if(i == aliases.length){
+				a[i] = cmd;
+			}else{
+				a[i] = aliases[i];
+			}
+		}
+		return a;
 	}
 	
 	public static EnumCmdAliases fromString(String cmd){

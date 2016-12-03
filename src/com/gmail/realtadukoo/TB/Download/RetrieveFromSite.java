@@ -48,6 +48,8 @@ public class RetrieveFromSite{
 				if(line.contains(tran.getName())){
 					line = line.split(tran.getName() + "</a></span><br />")[1];
 					line = line.split("<span class=")[0];
+					line = line.replaceAll("<i>", "");
+					line = line.replaceAll("</i>", "");
 					verse = line;
 					cont = false;
 				}

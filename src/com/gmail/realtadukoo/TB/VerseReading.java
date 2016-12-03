@@ -51,9 +51,27 @@ public class VerseReading{
 		Properties prop;
 		try{
 			prop = getBook(book, tran);
-			return prop.getProperty("ch" + chp + "v" + verse);
+			String v = prop.getProperty("ch" + chp + "v" + verse);
+			if(v == null){
+				v = RetrieveFromSite.getVerse(book, chp, verse, tran);
+				if(v != null){
+					prop.setProperty("ch" + chp + "v" + verse, v);
+					saveBook(prop, book, tran);
+				}
+			}
+			return v;
 		}catch(IOException e){
-			return RetrieveFromSite.getVerse(book, chp, verse, tran);
+			String v = RetrieveFromSite.getVerse(book, chp, verse, tran);
+			if(v != null){
+				prop = new Properties();
+				prop.setProperty("ch" + chp + "v" + verse, v);
+				try{
+					saveBook(prop, book, tran);
+				}catch(IOException e2){
+					e2.printStackTrace();
+				}
+			}
+			return v;
 		}
 	}
 }
