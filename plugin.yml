@@ -1,0 +1,10 @@
+ name: Tadukoo_Bible
+ main: com.gmail.realtadukoo.TB.Minecraft.Bukkit.BukkitMain
+ version: 1.5 Beta 1
+ description: Read the Bible in Minecraft.
+ author: Tadukoo
+ prefix: TB
+ commands:
+   bible:
+     description: Read the Bible.
+     usage: /<command>
