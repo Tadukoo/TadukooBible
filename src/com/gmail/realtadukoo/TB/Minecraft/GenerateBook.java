@@ -17,10 +17,10 @@ public class GenerateBook{
 	}
 	
 	public static void generateWholeBook(EnumTranslations tran, EnumBible book){
-		for(int i = 1; i <= EnumBibleChapters.fromBook(book.book()).getChps().length; i++){
+		for(int i = 1; i <= EnumBibleChapters.fromBook(book.getBook()).getChps().length; i++){
 			generateWholeChapter(tran, book, i);
 		}
-		System.out.println(book.book() + " Done");
+		System.out.println(book.getBook() + " Done");
 	}
 	
 	public static void generateWholeChapter(EnumTranslations tran, EnumBible book, int chp){
@@ -47,7 +47,7 @@ public class GenerateBook{
 		String page = "Chapter " + chp + "\n";
 		
 		ArrayList<String> verses = new ArrayList<String>();
-		for(int i = 1; i <= EnumBibleChapters.fromBook(book.book()).getNum(chp); i++){
+		for(int i = 1; i <= EnumBibleChapters.fromBook(book.getBook()).getNum(chp); i++){
 			verses.add(VerseReading.getVerse(book, chp, i, tran));
 		}
 		for(int i = 0; i < verses.size(); i++){
@@ -99,6 +99,6 @@ public class GenerateBook{
 		}
 		MinecraftBookFiles.addToMinecraftBook(book, tran, bookNum, pageNum, page);
 		MinecraftBookFiles.addToMinecraftBook(book, tran, chp, bookNum, pageNum);
-		System.out.println(book.book() + " Chapter " + chp + " Done");
+		System.out.println(book.getBook() + " Chapter " + chp + " Done");
 	}
 }

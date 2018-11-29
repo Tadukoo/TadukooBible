@@ -17,13 +17,13 @@ public class CmdHandler{
 			for(String s: EnumCmdAliases.BIBLE.aliases()){
 				if(parts[0].equalsIgnoreCase("/" + s)){
 					if(parts[1].equalsIgnoreCase("get")){
-						String verse = VerseReading.getVerse(EnumBible.fromString(parts[2]), 
+						String verse = VerseReading.getVerse(EnumBible.fromBook(parts[2]), 
 								Integer.parseInt(parts[3]), Integer.parseInt(parts[4]), 
 								EnumTranslations.fromAbbreviation(parts[5]));
 						System.out.println(verse);
 						return new String[]{verse};
 					}else if(parts[1].equalsIgnoreCase("download")){
-						String verse = RetrieveFromSite.getVerse(EnumBible.fromString(parts[2]), 
+						String verse = RetrieveFromSite.getVerse(EnumBible.fromBook(parts[2]), 
 								Integer.parseInt(parts[3]), Integer.parseInt(parts[4]), 
 								EnumTranslations.fromAbbreviation(parts[5]));
 						System.out.println(verse);

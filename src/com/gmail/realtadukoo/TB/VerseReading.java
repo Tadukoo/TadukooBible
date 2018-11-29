@@ -18,7 +18,7 @@ public class VerseReading{
 	public static Properties getBook(EnumBible book, EnumTranslations tran) throws IOException{
 		Properties prop = new Properties();
 		InputStream is = new FileInputStream("resource/Bible/" + tran.getAbbreviation() + "/" + 
-				book.book().replaceAll(" ", "") + ".properties");
+				book.getBook().replaceAll(" ", "") + ".properties");
 		prop.load(is);
 		return prop;
 	}
@@ -36,14 +36,14 @@ public class VerseReading{
 		
 		try{
 			FileOutputStream fos = new FileOutputStream("resource/Bible/" + tran.getAbbreviation() + "/" +
-					book.book().replaceAll(" ", "") + ".properties");
+					book.getBook().replaceAll(" ", "") + ".properties");
 			fos.close();
 		}catch(FileNotFoundException e){
 			File directory = new File("resource/Bible/" + tran.getAbbreviation());
 			directory.mkdirs();
 		}
 		OutputStream os = new FileOutputStream("resource/Bible/" + tran.getAbbreviation() + "/" +
-				book.book().replaceAll(" ", "") + ".properties");
+				book.getBook().replaceAll(" ", "") + ".properties");
 		prop.store(os, "No Comment");
 	}
 	

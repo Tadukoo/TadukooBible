@@ -76,17 +76,17 @@ public enum EnumBible{
 		this.author = author;
 	}
 	
-	public String book(){
+	public String getBook(){
 		return book;
 	}
 	
-	public String author(){
+	public String getAuthor(){
 		return author;
 	}
 	
-	public static EnumBible fromString(String name){
+	public static EnumBible fromBook(String book){
 		for(EnumBible e: EnumBible.values()){
-			if(e.book().replaceAll(" ", "").equalsIgnoreCase(name.replaceAll(" ", ""))){
+			if(e.getBook().replaceAll(" ", "").equalsIgnoreCase(book.replaceAll(" ", ""))){
 				return e;
 			}
 		}

@@ -16,18 +16,18 @@ public class FindMissing{
 		int count = 1;
 		for(int i = 1; i <= 66; i++){
 			EnumBible book = EnumBible.fromInt(i);
-			EnumBibleChapters echp = EnumBibleChapters.fromBook(book.book());
+			EnumBibleChapters echp = EnumBibleChapters.fromBook(book.getBook());
 			for(int j = 1; j <= echp.getChps().length; j++){
 				for(int k = 1; k <= echp.getNum(j); k++){
 					if(VerseReading.getVerse(book, j, k, tran) == null){
-						System.out.println("Missing " + book.book() + " " + j + ":" + k);
+						System.out.println("Missing " + book.getBook() + " " + j + ":" + k);
 						missing.setProperty(tran.getAbbreviation() + count, 
-								book.book() + " " + j + ":" + k);
+								book.getBook() + " " + j + ":" + k);
 						count++;
 					}
 				}
 			}
-			System.out.println("Checked " + book.book());
+			System.out.println("Checked " + book.getBook());
 		}
 		OutputStream os;
 		try{

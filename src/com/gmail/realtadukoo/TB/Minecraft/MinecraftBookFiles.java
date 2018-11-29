@@ -18,7 +18,7 @@ public class MinecraftBookFiles{
 			throws IOException{
 		Properties prop = new Properties();
 		InputStream is = new FileInputStream("resource/Bible/" + tran.getAbbreviation() + "/Minecraft/" + 
-				book.book().replaceAll(" ", "") + ".properties");
+				book.getBook().replaceAll(" ", "") + ".properties");
 		prop.load(is);
 		return prop;
 	}
@@ -27,14 +27,14 @@ public class MinecraftBookFiles{
 			throws IOException{
 		try{
 			FileOutputStream fos = new FileOutputStream("resource/Bible/" + tran.getAbbreviation() + 
-					"/Minecraft/" + book.book().replaceAll(" ", "") + ".properties");
+					"/Minecraft/" + book.getBook().replaceAll(" ", "") + ".properties");
 			fos.close();
 		}catch(FileNotFoundException e){
 			File directory = new File("resource/Bible/" + tran.getAbbreviation() + "/Minecraft");
 			directory.mkdirs();
 		}
 		OutputStream os = new FileOutputStream("resource/Bible/" + tran.getAbbreviation() + "/Minecraft/" +
-				book.book().replaceAll(" ", "") + ".properties");
+				book.getBook().replaceAll(" ", "") + ".properties");
 		prop.store(os, "No Comment");
 	}
 	

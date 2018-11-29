@@ -89,11 +89,11 @@ public class CmdFiddler{
 		}else{
 			throw new IllegalArgumentException("Invalid arguments amount.");
 		}
-		EnumBible ebook = EnumBible.fromString(EnumBibleAliases.getBookFromAlias(book));
+		EnumBible ebook = EnumBible.fromBook(EnumBibleAliases.getBookFromAlias(book));
 		if(ebook == null){
 			throw new IllegalArgumentException("Book doesn't exist.");
 		}
-		book = ebook.book().replaceAll(" ", "");
+		book = ebook.getBook().replaceAll(" ", "");
 		
 		if(chp > EnumBibleChapters.fromBook(book).getChps().length){
 			throw new IllegalArgumentException("Chapter doesn't exist.");
