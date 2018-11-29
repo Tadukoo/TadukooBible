@@ -203,6 +203,10 @@ public enum EnumBibleChps{
 		return chps;
 	}
 	
+	public int getNumChapters(){
+		return chps.length;
+	}
+	
 	public static EnumBibleChps fromString(String book){
 		for(EnumBibleChps e: EnumBibleChps.values()){
 			if(e.book().replaceAll(" ", "").equalsIgnoreCase(book.replaceAll(" ", ""))){
