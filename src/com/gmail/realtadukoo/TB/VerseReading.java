@@ -11,12 +11,14 @@ import java.util.Properties;
 
 import com.gmail.realtadukoo.TB.Download.RetrieveFromSite;
 import com.gmail.realtadukoo.TB.Enums.EnumTranslations;
+import com.gmail.realtadukoo.TB.Enums.Bible.BibleReference;
 import com.gmail.realtadukoo.TB.Enums.Bible.EnumBible;
 
 public class VerseReading{
 	
 	public static Properties getBook(EnumBible book, EnumTranslations tran) throws IOException{
 		Properties prop = new Properties();
+		System.out.println("Tran: " + tran);
 		InputStream is = new FileInputStream("resource/Bible/" + tran.getAbbreviation() + "/" + 
 				book.getBook().replaceAll(" ", "") + ".properties");
 		prop.load(is);
@@ -47,7 +49,11 @@ public class VerseReading{
 		prop.store(os, "No Comment");
 	}
 	
-	public static String getVerse(EnumBible book, int chp, int verse, EnumTranslations tran){
+	public static String getVerse(BibleReference ref){
+		EnumBible book = ref.getBook();
+		int chp = ref.getChapter();
+		int verse = ref.getVerse();
+		EnumTranslations tran = ref.getTranslation();
 		Properties prop;
 		try{
 			prop = getBook(book, tran);

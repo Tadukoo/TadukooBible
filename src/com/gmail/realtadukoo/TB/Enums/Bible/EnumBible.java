@@ -86,11 +86,20 @@ public enum EnumBible{
 	
 	public static EnumBible fromBook(String book){
 		for(EnumBible e: EnumBible.values()){
-			if(e.getBook().replaceAll(" ", "").equalsIgnoreCase(book.replaceAll(" ", ""))){
+			if(e.getBook().equalsIgnoreCase(book)){
 				return e;
 			}
 		}
 		return null;
+	}
+	
+	public static EnumBible fromString(String text){
+		String bookFromAlias = EnumBibleAliases.getBookFromAlias(text);
+		if(bookFromAlias == null){
+			return fromBook(text);
+		}else{
+			return fromBook(bookFromAlias);
+		}
 	}
 	
 	public static EnumBible fromInt(int i){

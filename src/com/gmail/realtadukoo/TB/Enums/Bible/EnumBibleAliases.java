@@ -91,11 +91,8 @@ public enum EnumBibleAliases{
 	
 	public static String getBookFromAlias(String alias){
 		for(EnumBibleAliases e: EnumBibleAliases.values()){
-			if(e.book.replaceAll(" ", "").equalsIgnoreCase(alias.replaceAll(" ", ""))){
-				return e.book;
-			}
 			for(String s: e.aliases){
-				if(s.replaceAll(" ", "").equalsIgnoreCase(alias.replaceAll(" ", ""))){
+				if(s.equalsIgnoreCase(alias)){
 					return e.book;
 				}
 			}

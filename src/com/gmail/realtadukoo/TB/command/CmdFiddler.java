@@ -1,7 +1,8 @@
-package com.gmail.realtadukoo.TB;
+package com.gmail.realtadukoo.TB.command;
 
 import java.util.ArrayList;
 
+import com.gmail.realtadukoo.TB.Enums.EnumArgType;
 import com.gmail.realtadukoo.TB.Enums.EnumCmdAliases;
 import com.gmail.realtadukoo.TB.Enums.EnumTranslations;
 import com.gmail.realtadukoo.TB.Enums.Bible.EnumBible;
@@ -87,6 +88,7 @@ public class CmdFiddler{
 			v = Integer.parseInt(args.get(2));
 			tran = args.get(3);
 		}else{
+			System.out.println(length);
 			throw new IllegalArgumentException("Invalid arguments amount.");
 		}
 		EnumBible ebook = EnumBible.fromBook(EnumBibleAliases.getBookFromAlias(book));
