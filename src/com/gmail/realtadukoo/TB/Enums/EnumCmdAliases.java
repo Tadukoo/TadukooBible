@@ -4,7 +4,7 @@ public enum EnumCmdAliases{
 	APOCRYPHA("Apocrypha"),
 	BIBLE("Bible"),
 	
-	GET("get"),
+	GET("get", "getverse", "verseget", "readverse", "verseread", "readv", "vread"),
 	DOWNLOAD("download"),
 	DOWNLOADTRAN("downloadtran");
 	
@@ -44,5 +44,14 @@ public enum EnumCmdAliases{
 			}
 		}
 		return null;
+	}
+	
+	public static EnumCmdAliases baseFromString(String cmd){
+		EnumCmdAliases ecmd = fromString(cmd);
+		if(ecmd == APOCRYPHA || ecmd == BIBLE){
+			return ecmd;
+		}else{
+			return null;
+		}
 	}
 }

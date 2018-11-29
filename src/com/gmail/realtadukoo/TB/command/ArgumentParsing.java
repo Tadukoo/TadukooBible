@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.gmail.realtadukoo.TB.Enums.EnumTranslations;
 import com.gmail.realtadukoo.TB.Enums.Bible.BibleReference;
 import com.gmail.realtadukoo.TB.Enums.Bible.EnumBible;
+import com.gmail.realtadukoo.TB.Enums.Bible.EnumBibleChapters;
 
 public class ArgumentParsing{
 	
@@ -14,8 +15,22 @@ public class ArgumentParsing{
 		ref.setChapter(isChapter(args));
 		ref.setVerse(isVerse(args));
 		ref.setTranslation(isTranslation(args));
-		//verify ref
-		return ref;
+		return verifyReference(ref)?ref:null;
+	}
+	
+	public static boolean verifyReference(BibleReference ref){
+		if(ref.getBook() == null || ref.getChapter() < 1 || ref.getVerse() < 1 || ref.getTranslation() == null){
+			return false;
+		}
+		EnumBibleChapters echp = EnumBibleChapters.fromBook(ref.getBook().getBook());
+		if(ref.getChapter() > echp.getNumChapters()){
+			return false;
+		}
+		if(ref.getVerse() > echp.getNum(ref.getChapter())){
+			return false;
+		}
+		// TODO: Check if verse is missing in Translation
+		return true;
 	}
 	
 	public static EnumBible isBibleBook(ArrayList<String> args){

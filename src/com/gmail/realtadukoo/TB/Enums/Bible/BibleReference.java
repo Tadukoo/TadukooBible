@@ -8,7 +8,12 @@ public class BibleReference{
 	private int verse;
 	private EnumTranslations translation;
 	
-	public BibleReference(){}
+	public BibleReference(){
+		this.book = null;
+		this.chapter = -1;
+		this.verse = -1;
+		this.translation = null;
+	}
 	
 	public BibleReference(EnumBible book, int chapter, int verse, EnumTranslations translation){
 		this.book = book;
