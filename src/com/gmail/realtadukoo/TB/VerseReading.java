@@ -18,7 +18,6 @@ public class VerseReading{
 	
 	public static Properties getBook(EnumBible book, EnumTranslations tran) throws IOException{
 		Properties prop = new Properties();
-		System.out.println("Tran: " + tran);
 		InputStream is = new FileInputStream("resource/Bible/" + tran.getAbbreviation() + "/" + 
 				book.getBook().replaceAll(" ", "") + ".properties");
 		prop.load(is);

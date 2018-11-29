@@ -23,7 +23,7 @@ public class RetrieveFromSite{
 		
 		URL site = null;
 		try{
-			site = new URL("http://biblehub.com/" + book + "/" + chp + "-" + v + ".htm");
+			site = new URL("https://biblehub.com/" + book + "/" + chp + "-" + v + ".htm");
 		}catch(MalformedURLException e){
 			e.printStackTrace();
 		}
