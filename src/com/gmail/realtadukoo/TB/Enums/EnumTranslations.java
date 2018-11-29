@@ -38,13 +38,13 @@ public enum EnumTranslations{
 		return tran;
 	}
 	
-	public String abbreviation(){
+	public String getAbbreviation(){
 		return abbreviation;
 	}
 	
 	public static EnumTranslations fromAbbreviation(String abbreviation){
 		for(EnumTranslations e: EnumTranslations.values()){
-			if(e.abbreviation().equalsIgnoreCase(abbreviation)){
+			if(e.getAbbreviation().equalsIgnoreCase(abbreviation)){
 				return e;
 			}
 		}

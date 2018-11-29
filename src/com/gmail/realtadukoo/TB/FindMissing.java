@@ -21,7 +21,7 @@ public class FindMissing{
 				for(int k = 1; k <= echp.getNum(j); k++){
 					if(VerseReading.getVerse(book, j, k, tran) == null){
 						System.out.println("Missing " + book.book() + " " + j + ":" + k);
-						missing.setProperty(tran.abbreviation() + count, 
+						missing.setProperty(tran.getAbbreviation() + count, 
 								book.book() + " " + j + ":" + k);
 						count++;
 					}

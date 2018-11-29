@@ -17,7 +17,7 @@ public class MinecraftBookFiles{
 	public static Properties loadMinecraftBook(EnumBible book, EnumTranslations tran) 
 			throws IOException{
 		Properties prop = new Properties();
-		InputStream is = new FileInputStream("resource/Bible/" + tran.abbreviation() + "/Minecraft/" + 
+		InputStream is = new FileInputStream("resource/Bible/" + tran.getAbbreviation() + "/Minecraft/" + 
 				book.book().replaceAll(" ", "") + ".properties");
 		prop.load(is);
 		return prop;
@@ -26,14 +26,14 @@ public class MinecraftBookFiles{
 	public static void saveMinecraftBook(Properties prop, EnumBible book, EnumTranslations tran)
 			throws IOException{
 		try{
-			FileOutputStream fos = new FileOutputStream("resource/Bible/" + tran.abbreviation() + 
+			FileOutputStream fos = new FileOutputStream("resource/Bible/" + tran.getAbbreviation() + 
 					"/Minecraft/" + book.book().replaceAll(" ", "") + ".properties");
 			fos.close();
 		}catch(FileNotFoundException e){
-			File directory = new File("resource/Bible/" + tran.abbreviation() + "/Minecraft");
+			File directory = new File("resource/Bible/" + tran.getAbbreviation() + "/Minecraft");
 			directory.mkdirs();
 		}
-		OutputStream os = new FileOutputStream("resource/Bible/" + tran.abbreviation() + "/Minecraft/" +
+		OutputStream os = new FileOutputStream("resource/Bible/" + tran.getAbbreviation() + "/Minecraft/" +
 				book.book().replaceAll(" ", "") + ".properties");
 		prop.store(os, "No Comment");
 	}
