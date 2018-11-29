@@ -6,7 +6,7 @@ import com.gmail.realtadukoo.TB.Enums.EnumCmdAliases;
 import com.gmail.realtadukoo.TB.Enums.EnumTranslations;
 import com.gmail.realtadukoo.TB.Enums.Bible.EnumBible;
 import com.gmail.realtadukoo.TB.Enums.Bible.EnumBibleAliases;
-import com.gmail.realtadukoo.TB.Enums.Bible.EnumBibleChps;
+import com.gmail.realtadukoo.TB.Enums.Bible.EnumBibleChapters;
 
 /**
  * This class will take a command and fiddle it to be the correct format for CmdHandler to 
@@ -95,10 +95,10 @@ public class CmdFiddler{
 		}
 		book = ebook.book().replaceAll(" ", "");
 		
-		if(chp > EnumBibleChps.fromString(book).getChps().length){
+		if(chp > EnumBibleChapters.fromBook(book).getChps().length){
 			throw new IllegalArgumentException("Chapter doesn't exist.");
 		}
-		if(v > EnumBibleChps.fromString(book).getNum(chp)){
+		if(v > EnumBibleChapters.fromBook(book).getNum(chp)){
 			throw new IllegalArgumentException("Verse doesn't exist.");
 		}
 		

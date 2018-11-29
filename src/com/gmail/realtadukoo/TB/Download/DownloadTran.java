@@ -7,7 +7,7 @@ import java.util.Properties;
 import com.gmail.realtadukoo.TB.VerseReading;
 import com.gmail.realtadukoo.TB.Enums.EnumTranslations;
 import com.gmail.realtadukoo.TB.Enums.Bible.EnumBible;
-import com.gmail.realtadukoo.TB.Enums.Bible.EnumBibleChps;
+import com.gmail.realtadukoo.TB.Enums.Bible.EnumBibleChapters;
 
 public class DownloadTran{
 	
@@ -26,18 +26,18 @@ public class DownloadTran{
 			int bookEnd, chpEnd;
 			if(i == threadNum - 1){
 				bookEnd = 66;
-				chpEnd = EnumBibleChps.REVELATION.getChps().length;
+				chpEnd = EnumBibleChapters.REVELATION.getChps().length;
 			}else{
 				bookEnd = bookStart;
 				chpEnd = chpStart + chpNum;
 				while(chpEnd > 
-					EnumBibleChps.fromString(EnumBible.fromInt(bookEnd).book()).getChps().length){
-					chpEnd -= EnumBibleChps.fromString(
+					EnumBibleChapters.fromBook(EnumBible.fromInt(bookEnd).book()).getChps().length){
+					chpEnd -= EnumBibleChapters.fromBook(
 							EnumBible.fromInt(bookEnd).book()).getChps().length;
 					bookEnd++;
 				}
 				nextBookStart = bookEnd;
-				if(chpEnd == EnumBibleChps.fromString(
+				if(chpEnd == EnumBibleChapters.fromBook(
 						EnumBible.fromInt(bookEnd).book()).getChps().length){
 					nextChpStart = 1;
 					nextBookStart++;
@@ -63,7 +63,7 @@ public class DownloadTran{
 			int chpEnd){
 		for(int i = bookStart; i <= bookEnd; i++){
 			EnumBible book = EnumBible.fromInt(i);
-			EnumBibleChps echp = EnumBibleChps.fromString(book.book());
+			EnumBibleChapters echp = EnumBibleChapters.fromBook(book.book());
 			int thisChpStart = 1;
 			int thisChpEnd = echp.getChps().length;
 			if(i == bookStart){
@@ -77,7 +77,7 @@ public class DownloadTran{
 				" through " + EnumBible.fromInt(bookEnd).book() + " " + chpEnd);
 	}
 	
-	private static void runBookPart(EnumTranslations tran, EnumBible book, EnumBibleChps echp, 
+	private static void runBookPart(EnumTranslations tran, EnumBible book, EnumBibleChapters echp, 
 			int chpStart, int chpEnd){
 		Properties verses = new Properties();
 		for(int j = chpStart; j <= chpEnd; j++){
@@ -101,12 +101,12 @@ public class DownloadTran{
 	public static void runBooks(EnumTranslations tran, int iStart, int iEnd){
 		for(int i = iStart; i <= iEnd; i++){
 			EnumBible book = EnumBible.fromInt(i);
-			EnumBibleChps echp = EnumBibleChps.fromString(book.book());
+			EnumBibleChapters echp = EnumBibleChapters.fromBook(book.book());
 			runBook(tran, book, echp);
 		}
 	}
 	
-	private static void runBook(EnumTranslations tran, EnumBible book, EnumBibleChps echp){
+	private static void runBook(EnumTranslations tran, EnumBible book, EnumBibleChapters echp){
 		Properties verses = new Properties();
 		for(int j = 1; j <= echp.getChps().length; j++){
 			for(int k = 1; k <= echp.getNum(j); k++){

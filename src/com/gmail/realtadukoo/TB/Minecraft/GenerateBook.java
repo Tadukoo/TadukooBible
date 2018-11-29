@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import com.gmail.realtadukoo.TB.VerseReading;
 import com.gmail.realtadukoo.TB.Enums.EnumTranslations;
 import com.gmail.realtadukoo.TB.Enums.Bible.EnumBible;
-import com.gmail.realtadukoo.TB.Enums.Bible.EnumBibleChps;
+import com.gmail.realtadukoo.TB.Enums.Bible.EnumBibleChapters;
 
 public class GenerateBook{
 	
@@ -17,7 +17,7 @@ public class GenerateBook{
 	}
 	
 	public static void generateWholeBook(EnumTranslations tran, EnumBible book){
-		for(int i = 1; i <= EnumBibleChps.fromString(book.book()).getChps().length; i++){
+		for(int i = 1; i <= EnumBibleChapters.fromBook(book.book()).getChps().length; i++){
 			generateWholeChapter(tran, book, i);
 		}
 		System.out.println(book.book() + " Done");
@@ -47,7 +47,7 @@ public class GenerateBook{
 		String page = "Chapter " + chp + "\n";
 		
 		ArrayList<String> verses = new ArrayList<String>();
-		for(int i = 1; i <= EnumBibleChps.fromString(book.book()).getNum(chp); i++){
+		for(int i = 1; i <= EnumBibleChapters.fromBook(book.book()).getNum(chp); i++){
 			verses.add(VerseReading.getVerse(book, chp, i, tran));
 		}
 		for(int i = 0; i < verses.size(); i++){

@@ -7,7 +7,7 @@ import java.util.Properties;
 
 import com.gmail.realtadukoo.TB.Enums.EnumTranslations;
 import com.gmail.realtadukoo.TB.Enums.Bible.EnumBible;
-import com.gmail.realtadukoo.TB.Enums.Bible.EnumBibleChps;
+import com.gmail.realtadukoo.TB.Enums.Bible.EnumBibleChapters;
 
 public class FindMissing{
 	
@@ -16,7 +16,7 @@ public class FindMissing{
 		int count = 1;
 		for(int i = 1; i <= 66; i++){
 			EnumBible book = EnumBible.fromInt(i);
-			EnumBibleChps echp = EnumBibleChps.fromString(book.book());
+			EnumBibleChapters echp = EnumBibleChapters.fromBook(book.book());
 			for(int j = 1; j <= echp.getChps().length; j++){
 				for(int k = 1; k <= echp.getNum(j); k++){
 					if(VerseReading.getVerse(book, j, k, tran) == null){
