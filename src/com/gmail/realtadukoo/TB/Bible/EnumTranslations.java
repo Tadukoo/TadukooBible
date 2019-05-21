@@ -1,4 +1,4 @@
-package com.gmail.realtadukoo.TB.Enums;
+package com.gmail.realtadukoo.TB.Bible;
 
 public enum EnumTranslations{
 	AKJV("American King James Version", "AKJV"),

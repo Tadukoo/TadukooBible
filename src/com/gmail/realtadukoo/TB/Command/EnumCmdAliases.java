@@ -1,4 +1,4 @@
-package com.gmail.realtadukoo.TB.Enums;
+package com.gmail.realtadukoo.TB.Command;
 
 public enum EnumCmdAliases{
 	APOCRYPHA("Apocrypha"),

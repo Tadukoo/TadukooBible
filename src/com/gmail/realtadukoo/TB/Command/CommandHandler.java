@@ -1,9 +1,7 @@
-package com.gmail.realtadukoo.TB.command;
+package com.gmail.realtadukoo.TB.Command;
 
 import java.io.IOException;
 import java.util.ArrayList;
-
-import com.gmail.realtadukoo.TB.Enums.EnumCmdAliases;
 
 public class CommandHandler{
 	

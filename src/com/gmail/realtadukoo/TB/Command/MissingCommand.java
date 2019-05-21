@@ -1,11 +1,16 @@
-package com.gmail.realtadukoo.TB.command;
+package com.gmail.realtadukoo.TB.Command;
 
 import java.util.ArrayList;
 
 import com.gmail.realtadukoo.TB.FindMissing;
-import com.gmail.realtadukoo.TB.Enums.EnumTranslations;
+import com.gmail.realtadukoo.TB.Bible.EnumTranslations;
 
 public class MissingCommand extends Command{
+	
+	public MissingCommand(){
+		// TODO: THIS
+		super("");
+	}
 	
 	@Override
 	public String[] runCommand(ArrayList<String> args){

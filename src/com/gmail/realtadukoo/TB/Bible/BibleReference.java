@@ -1,6 +1,4 @@
-package com.gmail.realtadukoo.TB.Enums.Bible;
-
-import com.gmail.realtadukoo.TB.Enums.EnumTranslations;
+package com.gmail.realtadukoo.TB.Bible;
 
 public class BibleReference{
 	private EnumBible book;

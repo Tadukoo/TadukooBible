@@ -1,13 +1,47 @@
-package com.gmail.realtadukoo.TB.command;
+package com.gmail.realtadukoo.TB.Command;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
-import com.gmail.realtadukoo.TB.Enums.EnumTranslations;
-import com.gmail.realtadukoo.TB.Enums.Bible.BibleReference;
-import com.gmail.realtadukoo.TB.Enums.Bible.EnumBible;
-import com.gmail.realtadukoo.TB.Enums.Bible.EnumBibleChapters;
+import com.gmail.realtadukoo.TB.Bible.BibleReference;
+import com.gmail.realtadukoo.TB.Bible.EnumBible;
+import com.gmail.realtadukoo.TB.Bible.EnumBibleChapters;
+import com.gmail.realtadukoo.TB.Bible.EnumTranslations;
 
 public class ArgumentParsing{
+	
+	public static HashMap<String, Object> parseArgsUsingFormatString(String format, ArrayList<String> args){
+		HashMap<String, Object> objs = new HashMap<String, Object>();
+		
+		// TODO: This
+		String[] pieces = format.split("> <");
+		for(String arg: pieces){
+			arg = arg.replaceAll("<", "");
+			arg = arg.replaceAll(">", "");
+			String[] argPieces = arg.split(":");
+			String name = argPieces[0];
+			String argType = argPieces[1];
+			if(argType.equalsIgnoreCase("bible reference")){
+				BibleReference ref = isBibleReference(args);
+				if(ref != null){
+					objs.put(name, ref);
+				}else{
+					// TODO: Throw error?
+				}
+			}else if(argType.equalsIgnoreCase("translation")){
+				EnumTranslations tran = isTranslation(args);
+				if(tran != null){
+					objs.put(name, tran);
+				}else{
+					// TODO: Throw error?
+				}
+			}else{
+				// TODO: Throw error?
+			}
+		}
+		
+		return objs;
+	}
 	
 	public static BibleReference isBibleReference(ArrayList<String> args){
 		BibleReference ref = new BibleReference();

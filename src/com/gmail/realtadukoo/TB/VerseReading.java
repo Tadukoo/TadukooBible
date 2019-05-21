@@ -9,10 +9,10 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Properties;
 
+import com.gmail.realtadukoo.TB.Bible.BibleReference;
+import com.gmail.realtadukoo.TB.Bible.EnumBible;
+import com.gmail.realtadukoo.TB.Bible.EnumTranslations;
 import com.gmail.realtadukoo.TB.Download.RetrieveFromSite;
-import com.gmail.realtadukoo.TB.Enums.EnumTranslations;
-import com.gmail.realtadukoo.TB.Enums.Bible.BibleReference;
-import com.gmail.realtadukoo.TB.Enums.Bible.EnumBible;
 
 public class VerseReading{
 	

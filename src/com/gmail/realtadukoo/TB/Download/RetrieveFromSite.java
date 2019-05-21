@@ -6,8 +6,8 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import com.gmail.realtadukoo.TB.Enums.EnumTranslations;
-import com.gmail.realtadukoo.TB.Enums.Bible.EnumBible;
+import com.gmail.realtadukoo.TB.Bible.EnumBible;
+import com.gmail.realtadukoo.TB.Bible.EnumTranslations;
 
 public class RetrieveFromSite{
 	

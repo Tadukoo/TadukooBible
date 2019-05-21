@@ -1,6 +1,6 @@
 package com.gmail.realtadukoo.TB.Download;
 
-import com.gmail.realtadukoo.TB.Enums.EnumTranslations;
+import com.gmail.realtadukoo.TB.Bible.EnumTranslations;
 
 public class DownloadTask implements Runnable{
 	private EnumTranslations tran;
