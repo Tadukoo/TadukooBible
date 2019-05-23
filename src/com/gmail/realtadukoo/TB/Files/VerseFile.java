@@ -1,4 +1,4 @@
-package com.gmail.realtadukoo.TB;
+package com.gmail.realtadukoo.TB.Files;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -9,12 +9,10 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Properties;
 
-import com.gmail.realtadukoo.TB.Bible.BibleReference;
 import com.gmail.realtadukoo.TB.Bible.EnumBible;
 import com.gmail.realtadukoo.TB.Bible.EnumTranslations;
-import com.gmail.realtadukoo.TB.Download.RetrieveFromSite;
 
-public class VerseReading{
+public class VerseFile{
 	
 	public static Properties getBook(EnumBible book, EnumTranslations tran) throws IOException{
 		Properties prop = new Properties();
@@ -46,37 +44,5 @@ public class VerseReading{
 		OutputStream os = new FileOutputStream("resource/Bible/" + tran.getAbbreviation() + "/" +
 				book.getBook().replaceAll(" ", "") + ".properties");
 		prop.store(os, "No Comment");
-	}
-	
-	public static String getVerse(BibleReference ref){
-		EnumBible book = ref.getBook();
-		int chp = ref.getChapter();
-		int verse = ref.getVerse();
-		EnumTranslations tran = ref.getTranslation();
-		Properties prop;
-		try{
-			prop = getBook(book, tran);
-			String v = prop.getProperty("ch" + chp + "v" + verse);
-			if(v == null){
-				v = RetrieveFromSite.getVerse(book, chp, verse, tran);
-				if(v != null){
-					prop.setProperty("ch" + chp + "v" + verse, v);
-					saveBook(prop, book, tran);
-				}
-			}
-			return v;
-		}catch(IOException e){
-			String v = RetrieveFromSite.getVerse(book, chp, verse, tran);
-			if(v != null){
-				prop = new Properties();
-				prop.setProperty("ch" + chp + "v" + verse, v);
-				try{
-					saveBook(prop, book, tran);
-				}catch(IOException e2){
-					e2.printStackTrace();
-				}
-			}
-			return v;
-		}
 	}
 }

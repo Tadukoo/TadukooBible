@@ -4,10 +4,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Properties;
 
-import com.gmail.realtadukoo.TB.VerseReading;
 import com.gmail.realtadukoo.TB.Bible.EnumBible;
 import com.gmail.realtadukoo.TB.Bible.EnumBibleChapters;
 import com.gmail.realtadukoo.TB.Bible.EnumTranslations;
+import com.gmail.realtadukoo.TB.Files.VerseFile;
 
 public class DownloadTran{
 	
@@ -90,7 +90,7 @@ public class DownloadTran{
 			System.out.println("Finished Chapter " + j + " of " + book.getBook());
 		}
 		try{
-			VerseReading.saveBook(verses, book, tran);
+			VerseFile.saveBook(verses, book, tran);
 			System.out.println("Finished " + book.getBook() + " Chapters " + chpStart + " through " + 
 					chpEnd);
 		}catch(IOException e){
@@ -115,7 +115,7 @@ public class DownloadTran{
 			System.out.println("Finished Chapter " + j + " of " + book.getBook());
 		}
 		try{
-			VerseReading.saveBook(verses, book, tran);
+			VerseFile.saveBook(verses, book, tran);
 			System.out.println("Finished " + book.getBook());
 		}catch(IOException e){
 			e.printStackTrace();

@@ -9,6 +9,7 @@ import com.gmail.realtadukoo.TB.Bible.BibleReference;
 import com.gmail.realtadukoo.TB.Bible.EnumBible;
 import com.gmail.realtadukoo.TB.Bible.EnumBibleChapters;
 import com.gmail.realtadukoo.TB.Bible.EnumTranslations;
+import com.gmail.realtadukoo.TB.Command.GetVerse;
 
 public class FindMissing{
 	
@@ -20,7 +21,7 @@ public class FindMissing{
 			EnumBibleChapters echp = EnumBibleChapters.fromBook(book.getBook());
 			for(int j = 1; j <= echp.getChps().length; j++){
 				for(int k = 1; k <= echp.getNum(j); k++){
-					if(VerseReading.getVerse(new BibleReference(book, j, k, tran)) == null){
+					if(GetVerse.getVerse(new BibleReference(book, j, k, tran)) == null){
 						System.out.println("Missing " + book.getBook() + " " + j + ":" + k);
 						missing.setProperty(tran.getAbbreviation() + count, 
 								book.getBook() + " " + j + ":" + k);
