@@ -28,7 +28,7 @@ public class CommandHandler{
 					return new DownloadTranCommand().runCommand(args);
 				}else if(args.get(0).equalsIgnoreCase("missing")){
 					args.remove(0);
-					return new MissingCommand().runCommand(args);
+					return new FindMissing().runCommand(args);
 				}else{
 					throw new IllegalArgumentException("Unknown Bible command!");
 				}

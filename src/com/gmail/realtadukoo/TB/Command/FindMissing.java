@@ -1,19 +1,37 @@
-package com.gmail.realtadukoo.TB;
+package com.gmail.realtadukoo.TB.Command;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Properties;
 
 import com.gmail.realtadukoo.TB.Bible.BibleReference;
 import com.gmail.realtadukoo.TB.Bible.EnumBible;
 import com.gmail.realtadukoo.TB.Bible.EnumBibleChapters;
 import com.gmail.realtadukoo.TB.Bible.EnumTranslations;
-import com.gmail.realtadukoo.TB.Command.GetVerse;
 
-public class FindMissing{
+public class FindMissing extends Command{
 	
-	public static void run(EnumTranslations tran){
+	public FindMissing(){
+		super("<Tran:translation>");
+	}
+	
+	@Override
+	public String[] runCommand(ArrayList<String> args){
+		// Get arguments
+		HashMap<String, Object> objs = getArgsAsObjects(args);
+		EnumTranslations tran = (EnumTranslations) objs.get("Tran");
+		
+		// Do work
+		findMissing(tran);
+		
+		// Return
+		return new String[]{};
+	}
+	
+	public static void findMissing(EnumTranslations tran){
 		Properties missing = new Properties();
 		int count = 1;
 		for(int i = 1; i <= 66; i++){
