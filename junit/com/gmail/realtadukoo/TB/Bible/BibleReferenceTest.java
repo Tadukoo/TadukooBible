@@ -5,21 +5,30 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.gmail.realtadukoo.TB.Constants.BibleBooks;
 import com.gmail.realtadukoo.TB.Constants.EnumBible;
 import com.gmail.realtadukoo.TB.Constants.EnumTranslation;
 
 public class BibleReferenceTest{
-	private BibleReference ref;
+	private BibleReference reference;
 	
 	@Before
 	public void setup(){
-		ref = new BibleReference(EnumBible.FIRST_JOHN, 3, 16, EnumTranslation.ESV);
+		reference = BibleReference.builder()
+									.book(EnumBible.JOHN)
+									.chapter(3)
+									.verse(16)
+									.translation(EnumTranslation.NIV)
+									.build();
 	}
 	
 	@Test
-	public void testEmptyConstructor(){
-		BibleReference ref = new BibleReference();
+	public void testEmptyBuilder(){
+		// Build reference with empty parameters
+		BibleReference ref = BibleReference.builder()
+											.build();
 		
+		// Check that it defaults to the correct things
 		assertEquals(null, ref.getBook());
 		assertEquals(-1, ref.getChapter());
 		assertEquals(-1, ref.getVerse());
@@ -27,7 +36,16 @@ public class BibleReferenceTest{
 	}
 	
 	@Test
-	public void testConstructor(){
+	public void testFullBuilder(){
+		// Build reference with full parameters
+		BibleReference ref = BibleReference.builder()
+											.book(EnumBible.FIRST_JOHN)
+											.chapter(3)
+											.verse(16)
+											.translation(EnumTranslation.ESV)
+											.build();
+		
+		// Check that it properly sets everything
 		assertEquals(EnumBible.FIRST_JOHN, ref.getBook());
 		assertEquals(3, ref.getChapter());
 		assertEquals(16, ref.getVerse());
@@ -35,30 +53,101 @@ public class BibleReferenceTest{
 	}
 	
 	@Test
-	public void testSetBook(){
-		ref.setBook(EnumBible.ACTS);
+	public void testBookFromNameBuilder(){
+		// Build reference using bookFromName
+		BibleReference ref = BibleReference.builder()
+											.bookFromName(BibleBooks.AMOS)
+											.build();
 		
-		assertEquals(EnumBible.ACTS, ref.getBook());
+		// Check that book was properly set
+		assertEquals(EnumBible.AMOS, ref.getBook());
+	}
+	
+	@Test
+	public void testBookFromStringBuilder(){
+		// Build reference using bookFromString for an alias
+		BibleReference ref = BibleReference.builder()
+											.bookFromString("Ex")
+											.build();
+		
+		// Check that book was properly set
+		assertEquals(EnumBible.EXODUS, ref.getBook());
+	}
+	
+	@Test
+	public void testBookFromNumberBuilder(){
+		// Build reference using bookFromNumber
+		BibleReference ref = BibleReference.builder()
+											.bookFromNumber(39)
+											.build();
+		
+		// Check that book was properly set
+		assertEquals(EnumBible.MALACHI, ref.getBook());
+	}
+	
+	@Test
+	public void testTranslationFromNameBuilder(){
+		// Build reference using translationFromName
+		BibleReference ref = BibleReference.builder()
+											.translationFromName("English Standard Version")
+											.build();
+		
+		// Check that translation was properly set
+		assertEquals(EnumTranslation.ESV, ref.getTranslation());
+	}
+	
+	@Test
+	public void testTranslationFromAbbreviationBuilder(){
+		// Build reference using translationFromAbbreviation
+		BibleReference ref = BibleReference.builder()
+											.translationFromAbbreviation("KJV")
+											.build();
+		
+		// Check that translation was properly set
+		assertEquals(EnumTranslation.KJV, ref.getTranslation());
+	}
+	
+	@Test
+	public void testSetBook(){
+		// Change book to Acts and check that it changed
+		reference.setBook(EnumBible.ACTS);
+		assertEquals(EnumBible.ACTS, reference.getBook());
+		
+		// Change book to Ecclesiastes and check that it changed
+		reference.setBook(EnumBible.ECCLESIASTES);
+		assertEquals(EnumBible.ECCLESIASTES, reference.getBook());
 	}
 	
 	@Test
 	public void testSetChapter(){
-		ref.setChapter(28);
+		// Change chapter to 28 and check that it changed
+		reference.setChapter(28);
+		assertEquals(28, reference.getChapter());
 		
-		assertEquals(28, ref.getChapter());
+		// Change chapter to 129 and check that it changed
+		reference.setChapter(129);
+		assertEquals(129, reference.getChapter());
 	}
 	
 	@Test
 	public void testSetVerse(){
-		ref.setVerse(21);
+		// Change verse to 21 and check that it changed
+		reference.setVerse(21);
+		assertEquals(21, reference.getVerse());
 		
-		assertEquals(21, ref.getVerse());
+		// Change verse to 49 and check that it changed
+		reference.setVerse(49);
+		assertEquals(49, reference.getVerse());
 	}
 	
 	@Test
 	public void testSetTranslation(){
-		ref.setTranslation(EnumTranslation.HCSB);
+		// Change translation to HCSB and check that it changed
+		reference.setTranslation(EnumTranslation.HCSB);
+		assertEquals(EnumTranslation.HCSB, reference.getTranslation());
 		
-		assertEquals(EnumTranslation.HCSB, ref.getTranslation());
+		// Change translation to DBT and check that it changed
+		reference.setTranslation(EnumTranslation.DBT);
+		assertEquals(EnumTranslation.DBT, reference.getTranslation());
 	}
 }

@@ -43,11 +43,12 @@ public class ArgumentParsing{
 	}
 	
 	public static BibleReference isBibleReference(ArrayList<String> args){
-		BibleReference ref = new BibleReference();
-		ref.setBook(isBibleBook(args));
-		ref.setChapter(isChapter(args));
-		ref.setVerse(isVerse(args));
-		ref.setTranslation(isTranslation(args));
+		BibleReference ref = BibleReference.builder()
+											.book(isBibleBook(args))
+											.chapter(isChapter(args))
+											.verse(isVerse(args))
+											.translation(isTranslation(args))
+											.build();
 		return verifyReference(ref)?ref:null;
 	}
 	

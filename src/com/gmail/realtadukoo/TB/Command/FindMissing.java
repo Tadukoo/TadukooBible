@@ -37,7 +37,13 @@ public class FindMissing extends Command{
 			EnumBible book = EnumBible.fromInt(i);
 			for(int j = 1; j <= book.getChps().length; j++){
 				for(int k = 1; k <= book.getNumVersesInChp(j); k++){
-					if(GetVerse.getVerse(new BibleReference(book, j, k, tran)) == null){
+					BibleReference ref = BibleReference.builder()
+														.book(book)
+														.chapter(j)
+														.verse(k)
+														.translation(tran)
+														.build();
+					if(GetVerse.getVerse(ref) == null){
 						System.out.println("Missing " + book.getBook() + " " + j + ":" + k);
 						missing.setProperty(tran.getAbbreviation() + count, 
 								book.getBook() + " " + j + ":" + k);
