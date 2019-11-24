@@ -4,7 +4,7 @@ package com.gmail.realtadukoo.TB.Constants;
  * Contains information about the books of the Bible.
  * 
  * @author Logan Ferree (Tadukoo)
- * @version 2.0-Alpha1-SNAPSHOT (Probably earlier)
+ * @version 2.0-Alpha1-SNAPSHOT (Definitely earlier)
  */
 public enum EnumBible{
 	/*
@@ -882,12 +882,25 @@ public enum EnumBible{
 					27, 21
 			});
 	
+	/** The name of the book */
 	private String book;
+	/** The author of the book */
 	private String author;
+	/** An array of aliases for the book */
 	private String[] aliases;
-	// The array of verse lengths for the various chapters.
+	/** An array of the number of verses in each chapter */
 	private int[] chps;
 	
+	/**
+	 * Constructs an EnumBible with the given book name, author, and 
+	 * array of number of verses in each chapter.
+	 * <br>Aliases is initialized as an empty array (since there are 
+	 * no aliases).
+	 * 
+	 * @param book The name of the book
+	 * @param author The author of the book
+	 * @param chps The number of verses in each chapter of this book
+	 */
 	private EnumBible(String book, String author, int[] chps){
 		this.book = book;
 		this.author = author;
@@ -895,6 +908,15 @@ public enum EnumBible{
 		this.chps = chps;
 	}
 	
+	/**
+	 * Constructs an EnumBible with the given book name, author, aliases, 
+	 * and array of number of verses in each chapter.
+	 * 
+	 * @param book The name of the book
+	 * @param author The author of the book
+	 * @param aliases The aliases of this book
+	 * @param chps The number of verses in each chapter of this book
+	 */
 	private EnumBible(String book, String author, String[] aliases, int[] chps){
 		this.book = book;
 		this.author = author;
@@ -902,62 +924,105 @@ public enum EnumBible{
 		this.chps = chps;
 	}
 	
+	/**
+	 * @return The name of this book
+	 */
 	public String getBook(){
 		return book;
 	}
 	
+	/**
+	 * @return The author of this book
+	 */
 	public String getAuthor(){
 		return author;
 	}
 	
+	/**
+	 * @return The array of aliases for this book
+	 */
 	public String[] getAliases(){
 		return aliases;
 	}
 	
-	/*
-	 *  Gets the number of verses in a specific chapter.
+	/**
+	 * @return The array of number of verses per chapter
 	 */
-	public int getNum(int i){
-		return chps[i - 1];
-	}
-	
 	public int[] getChps(){
 		return chps;
 	}
 	
+	/**
+	 * @returnThe number of chapters in this book
+	 */
 	public int getNumChapters(){
 		return chps.length;
 	}
 	
-	public static EnumBible fromBook(String book){
-		for(EnumBible e: EnumBible.values()){
-			if(e.getBook().equalsIgnoreCase(book)){
-				return e;
+	/**
+	 * @return The number of verses in the given chapter
+	 */
+	public int getNumVersesInChp(int chp){
+		return chps[chp - 1];
+	}
+	
+	/**
+	 * Find an EnumBible based on the book name.
+	 * 
+	 * @param bookName The book name to find
+	 * @return The found EnumBible, or null if none could be found
+	 */
+	public static EnumBible fromBook(String bookName){
+		// Search through the existing EnumBibles for the book name
+		for(EnumBible book: EnumBible.values()){
+			if(book.getBook().equalsIgnoreCase(bookName)){
+				return book;
 			}
 		}
+		
+		// Return null if nothing matched
 		return null;
 	}
 	
+	/**
+	 * Find an EnumBible based on text that may be the book name or an alias.
+	 * 
+	 * @param text The text to find
+	 * @return The found EnumBible, or null if none could be found
+	 */
 	public static EnumBible fromString(String text){
-		for(EnumBible e: EnumBible.values()){
-			if(e.getBook().equalsIgnoreCase(text)){
-				return e;
+		// Search through the existing EnumBibles for the text
+		for(EnumBible book: EnumBible.values()){
+			// Check against the book name
+			if(book.getBook().equalsIgnoreCase(text)){
+				return book;
 			}
-			for(String s: e.aliases){
-				if(s.equalsIgnoreCase(text)){
-					return e;
+			// Check against the aliases
+			for(String alias: book.aliases){
+				if(alias.equalsIgnoreCase(text)){
+					return book;
 				}
 			}
 		}
+		
+		// Return null if nothing matched
 		return null;
 	}
 	
-	public static EnumBible fromInt(int i){
-		for(EnumBible e: EnumBible.values()){
-			if(e.ordinal() == i - 1){
-				return e;
-			}
+	/**
+	 * Find an EnumBible based on the book number.
+	 * 
+	 * @param bookName The book number of the book to grab
+	 * @return The found EnumBible, or null if it's an invalid book number
+	 */
+	public static EnumBible fromInt(int bookNum){
+		// Check that bookNum is between 1 and 66
+		if(bookNum > 0 && bookNum < 67){
+			// Return the EnumBible book corresponding to the given book number
+			return EnumBible.values()[bookNum-1];
+		}else{
+			// Return null - invalid book number
+			return null;
 		}
-		return null;
 	}
 }

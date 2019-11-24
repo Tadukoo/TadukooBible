@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.gmail.realtadukoo.TB.Bible.BibleReference;
-import com.gmail.realtadukoo.TB.Bible.EnumTranslations;
 import com.gmail.realtadukoo.TB.Constants.EnumBible;
+import com.gmail.realtadukoo.TB.Constants.EnumTranslation;
 
 public class ArgumentParsing{
 	
@@ -28,7 +28,7 @@ public class ArgumentParsing{
 					// TODO: Throw error?
 				}
 			}else if(argType.equalsIgnoreCase("translation")){
-				EnumTranslations tran = isTranslation(args);
+				EnumTranslation tran = isTranslation(args);
 				if(tran != null){
 					objs.put(name, tran);
 				}else{
@@ -59,7 +59,7 @@ public class ArgumentParsing{
 		if(ref.getChapter() > book.getNumChapters()){
 			return false;
 		}
-		if(ref.getVerse() > book.getNum(ref.getChapter())){
+		if(ref.getVerse() > book.getNumVersesInChp(ref.getChapter())){
 			return false;
 		}
 		// TODO: Check if verse is missing in Translation
@@ -106,8 +106,8 @@ public class ArgumentParsing{
 		return v;
 	}
 	
-	public static EnumTranslations isTranslation(ArrayList<String> args){
-		EnumTranslations tran = EnumTranslations.fromAbbreviation(args.get(0));
+	public static EnumTranslation isTranslation(ArrayList<String> args){
+		EnumTranslation tran = EnumTranslation.fromAbbreviation(args.get(0));
 		args.remove(0);
 		return tran;
 	}

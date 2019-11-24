@@ -4,13 +4,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Properties;
 
-import com.gmail.realtadukoo.TB.Bible.EnumTranslations;
 import com.gmail.realtadukoo.TB.Constants.EnumBible;
+import com.gmail.realtadukoo.TB.Constants.EnumTranslation;
 import com.gmail.realtadukoo.TB.Files.VerseFile;
 
 public class DownloadTran{
 	
-	public static void run(EnumTranslations tran){
+	public static void run(EnumTranslation tran){
 		int threadNum = 11;
 		int chpNum = 1189/threadNum;
 		System.out.println("ChpNum: " + chpNum);
@@ -55,7 +55,7 @@ public class DownloadTran{
 		}
 	}
 	
-	public static void runBooks(EnumTranslations tran, int bookStart, int chpStart, int bookEnd, 
+	public static void runBooks(EnumTranslation tran, int bookStart, int chpStart, int bookEnd, 
 			int chpEnd){
 		for(int i = bookStart; i <= bookEnd; i++){
 			EnumBible book = EnumBible.fromInt(i);
@@ -72,10 +72,10 @@ public class DownloadTran{
 				" through " + EnumBible.fromInt(bookEnd).getBook() + " " + chpEnd);
 	}
 	
-	private static void runBookPart(EnumTranslations tran, EnumBible book, int chpStart, int chpEnd){
+	private static void runBookPart(EnumTranslation tran, EnumBible book, int chpStart, int chpEnd){
 		Properties verses = new Properties();
 		for(int j = chpStart; j <= chpEnd; j++){
-			for(int k = 1; k <= book.getNum(j); k++){
+			for(int k = 1; k <= book.getNumVersesInChp(j); k++){
 				String verse = RetrieveFromSite.getVerse(book, j, k, tran);
 				if(verse != null){
 					verses.setProperty("ch" + j + "v" + k, verse);
@@ -92,17 +92,17 @@ public class DownloadTran{
 		}
 	}
 	
-	public static void runBooks(EnumTranslations tran, int iStart, int iEnd){
+	public static void runBooks(EnumTranslation tran, int iStart, int iEnd){
 		for(int i = iStart; i <= iEnd; i++){
 			EnumBible book = EnumBible.fromInt(i);
 			runBook(tran, book);
 		}
 	}
 	
-	private static void runBook(EnumTranslations tran, EnumBible book){
+	private static void runBook(EnumTranslation tran, EnumBible book){
 		Properties verses = new Properties();
 		for(int j = 1; j <= book.getNumChapters(); j++){
-			for(int k = 1; k <= book.getNum(j); k++){
+			for(int k = 1; k <= book.getNumVersesInChp(j); k++){
 				verses.setProperty("ch" + j + "v" + k, RetrieveFromSite.getVerse(book, j, k, tran));
 			}
 			System.out.println("Finished Chapter " + j + " of " + book.getBook());

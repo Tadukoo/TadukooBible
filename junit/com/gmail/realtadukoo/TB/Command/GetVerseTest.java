@@ -7,16 +7,16 @@ import java.util.ArrayList;
 import org.junit.Test;
 
 import com.gmail.realtadukoo.TB.Bible.BibleReference;
-import com.gmail.realtadukoo.TB.Bible.EnumTranslations;
 import com.gmail.realtadukoo.TB.Constants.EnumBible;
+import com.gmail.realtadukoo.TB.Constants.EnumTranslation;
 
 public class GetVerseTest{
 	
 	private String John316KJV = "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him "
 			+ "should not perish, but have everlasting life.";
-	private BibleReference John316KJVRef = new BibleReference(EnumBible.JOHN, 3, 16, EnumTranslations.KJV);
+	private BibleReference John316KJVRef = new BibleReference(EnumBible.JOHN, 3, 16, EnumTranslation.KJV);
 	private String Genesis11NIV = "In the beginning God created the heavens and the earth.";
-	private BibleReference Genesis11NIVRef = new BibleReference(EnumBible.GENESIS, 1, 1, EnumTranslations.NIV);
+	private BibleReference Genesis11NIVRef = new BibleReference(EnumBible.GENESIS, 1, 1, EnumTranslation.NIV);
 	
 	@Test
 	public void testGetVerseJohn316KJV(){

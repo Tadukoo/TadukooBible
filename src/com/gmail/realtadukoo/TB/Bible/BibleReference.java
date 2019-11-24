@@ -1,12 +1,13 @@
 package com.gmail.realtadukoo.TB.Bible;
 
 import com.gmail.realtadukoo.TB.Constants.EnumBible;
+import com.gmail.realtadukoo.TB.Constants.EnumTranslation;
 
 public class BibleReference{
 	private EnumBible book;
 	private int chapter;
 	private int verse;
-	private EnumTranslations translation;
+	private EnumTranslation translation;
 	
 	public BibleReference(){
 		this.book = null;
@@ -15,7 +16,7 @@ public class BibleReference{
 		this.translation = null;
 	}
 	
-	public BibleReference(EnumBible book, int chapter, int verse, EnumTranslations translation){
+	public BibleReference(EnumBible book, int chapter, int verse, EnumTranslation translation){
 		this.book = book;
 		this.chapter = chapter;
 		this.verse = verse;
@@ -46,11 +47,11 @@ public class BibleReference{
 		this.verse = verse;
 	}
 	
-	public EnumTranslations getTranslation(){
+	public EnumTranslation getTranslation(){
 		return translation;
 	}
 	
-	public void setTranslation(EnumTranslations translation){
+	public void setTranslation(EnumTranslation translation){
 		this.translation = translation;
 	}
 }

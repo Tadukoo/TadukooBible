@@ -1,13 +1,13 @@
 package com.gmail.realtadukoo.TB.Download;
 
-import com.gmail.realtadukoo.TB.Bible.EnumTranslations;
+import com.gmail.realtadukoo.TB.Constants.EnumTranslation;
 
 public class DownloadTask implements Runnable{
-	private EnumTranslations tran;
+	private EnumTranslation tran;
 	private int bookStart, bookEnd;
 	private int chpStart, chpEnd;
 	
-	public DownloadTask(EnumTranslations tran, int bookStart, int chpStart, int bookEnd, int chpEnd){
+	public DownloadTask(EnumTranslation tran, int bookStart, int chpStart, int bookEnd, int chpEnd){
 		this.tran = tran;
 		this.bookStart = bookStart;
 		this.chpStart = chpStart;

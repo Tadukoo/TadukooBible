@@ -146,56 +146,94 @@ public enum EnumApocrypha{
 	 */
 	THIRD_MEQABYAN("3 Meqabyan");
 	
+	/** The name of the book */
 	private String book;
+	/** An array of aliases for the book */
 	private String[] aliases;
 	
+	/**
+	 * Constructs an EnumApocrypha with the given book name.
+	 * <br>Aliases is initialized as an empty array (since there are 
+	 * no aliases).
+	 * 
+	 * @param book The name of the book
+	 */
 	private EnumApocrypha(String book){
 		this.book = book;
 		aliases = new String[0];
 	}
 	
+	/**
+	 * Constructs an EnumApocrypha with the given book name and aliases.
+	 * 
+	 * @param book The name of the book
+	 * @param aliases The aliases of this book
+	 */
 	private EnumApocrypha(String book, String[] aliases){
 		this.book = book;
 		this.aliases = aliases;
 	}
 	
+	/**
+	 * @return The name of this book
+	 */
 	public String getBook(){
 		return book;
 	}
 	
+	/**
+	 * @return The array of aliases for this book
+	 */
 	public String[] getAliases(){
 		return aliases;
 	}
 	
-	public static EnumApocrypha fromBook(String book){
-		for(EnumApocrypha e: EnumApocrypha.values()){
-			if(e.getBook().equalsIgnoreCase(book)){
-				return e;
+	/**
+	 * Find an EnumApocrypha based on the book name.
+	 * 
+	 * @param bookName The book name to find
+	 * @return The found EnumApocrypha, or null if none could be found
+	 */
+	public static EnumApocrypha fromBook(String bookName){
+		// Search through the existing EnumApocryphas for the book name
+		for(EnumApocrypha book: EnumApocrypha.values()){
+			if(book.getBook().equalsIgnoreCase(bookName)){
+				return book;
 			}
 		}
+		
+		// Return null if nothing matched
 		return null;
 	}
 	
+	/**
+	 * Find an EnumApocrypha based on text that may be the book name or an alias.
+	 * 
+	 * @param text The text to find
+	 * @return The found EnumApocrypha, or null if none could be found
+	 */
 	public static EnumApocrypha fromString(String text){
-		for(EnumApocrypha e: EnumApocrypha.values()){
-			if(e.getBook().equalsIgnoreCase(text)){
-				return e;
+		// Search through the existing EnumApocryphas for the text
+		for(EnumApocrypha book: EnumApocrypha.values()){
+			// Check against the book name
+			if(book.getBook().equalsIgnoreCase(text)){
+				return book;
 			}
-			for(String alias: e.getAliases()){
+			// Check against the aliases
+			for(String alias: book.aliases){
 				if(alias.equalsIgnoreCase(text)){
-					return e;
+					return book;
 				}
 			}
 		}
+		
+		// Return null if nothing matched
 		return null;
 	}
 	
 	public static EnumApocrypha fromInt(int i){
-		for(EnumApocrypha e: EnumApocrypha.values()){
-			if(e.ordinal() == i - 1){
-				return e;
-			}
-		}
-		return null;
+		// TODO: Add range check
+		// Return the EnumApocrypha book corresponding to the given book number
+		return EnumApocrypha.values()[i+1];
 	}
 }

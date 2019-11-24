@@ -6,8 +6,8 @@ import java.util.HashMap;
 import java.util.Properties;
 
 import com.gmail.realtadukoo.TB.Bible.BibleReference;
-import com.gmail.realtadukoo.TB.Bible.EnumTranslations;
 import com.gmail.realtadukoo.TB.Constants.EnumBible;
+import com.gmail.realtadukoo.TB.Constants.EnumTranslation;
 import com.gmail.realtadukoo.TB.Download.RetrieveFromSite;
 import com.gmail.realtadukoo.TB.Files.VerseFile;
 
@@ -35,7 +35,7 @@ public class GetVerse extends Command{
 		EnumBible book = ref.getBook();
 		int chp = ref.getChapter();
 		int verse = ref.getVerse();
-		EnumTranslations tran = ref.getTranslation();
+		EnumTranslation tran = ref.getTranslation();
 		Properties prop;
 		try{
 			prop = VerseFile.getBook(book, tran);

@@ -6,13 +6,14 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.gmail.realtadukoo.TB.Constants.EnumBible;
+import com.gmail.realtadukoo.TB.Constants.EnumTranslation;
 
 public class BibleReferenceTest{
 	private BibleReference ref;
 	
 	@Before
 	public void setup(){
-		ref = new BibleReference(EnumBible.FIRST_JOHN, 3, 16, EnumTranslations.ESV);
+		ref = new BibleReference(EnumBible.FIRST_JOHN, 3, 16, EnumTranslation.ESV);
 	}
 	
 	@Test
@@ -30,7 +31,7 @@ public class BibleReferenceTest{
 		assertEquals(EnumBible.FIRST_JOHN, ref.getBook());
 		assertEquals(3, ref.getChapter());
 		assertEquals(16, ref.getVerse());
-		assertEquals(EnumTranslations.ESV, ref.getTranslation());
+		assertEquals(EnumTranslation.ESV, ref.getTranslation());
 	}
 	
 	@Test
@@ -56,8 +57,8 @@ public class BibleReferenceTest{
 	
 	@Test
 	public void testSetTranslation(){
-		ref.setTranslation(EnumTranslations.HCSB);
+		ref.setTranslation(EnumTranslation.HCSB);
 		
-		assertEquals(EnumTranslations.HCSB, ref.getTranslation());
+		assertEquals(EnumTranslation.HCSB, ref.getTranslation());
 	}
 }

@@ -9,12 +9,12 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Properties;
 
-import com.gmail.realtadukoo.TB.Bible.EnumTranslations;
 import com.gmail.realtadukoo.TB.Constants.EnumBible;
+import com.gmail.realtadukoo.TB.Constants.EnumTranslation;
 
 public class VerseFile{
 	
-	public static Properties getBook(EnumBible book, EnumTranslations tran) throws IOException{
+	public static Properties getBook(EnumBible book, EnumTranslation tran) throws IOException{
 		Properties prop = new Properties();
 		InputStream is = new FileInputStream("resource/Bible/" + tran.getAbbreviation() + "/" + 
 				book.getBook().replaceAll(" ", "") + ".properties");
@@ -22,7 +22,7 @@ public class VerseFile{
 		return prop;
 	}
 	
-	public static void saveBook(Properties verses, EnumBible book, EnumTranslations tran) 
+	public static void saveBook(Properties verses, EnumBible book, EnumTranslation tran) 
 			throws IOException{
 		Properties prop = verses;
 		try{
