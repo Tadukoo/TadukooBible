@@ -4,9 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.gmail.realtadukoo.TB.Bible.BibleReference;
-import com.gmail.realtadukoo.TB.Bible.EnumBible;
-import com.gmail.realtadukoo.TB.Bible.EnumBibleChapters;
 import com.gmail.realtadukoo.TB.Bible.EnumTranslations;
+import com.gmail.realtadukoo.TB.Constants.EnumBible;
 
 public class ArgumentParsing{
 	
@@ -56,11 +55,11 @@ public class ArgumentParsing{
 		if(ref.getBook() == null || ref.getChapter() < 1 || ref.getVerse() < 1 || ref.getTranslation() == null){
 			return false;
 		}
-		EnumBibleChapters echp = EnumBibleChapters.fromBook(ref.getBook().getBook());
-		if(ref.getChapter() > echp.getNumChapters()){
+		EnumBible book = ref.getBook();
+		if(ref.getChapter() > book.getNumChapters()){
 			return false;
 		}
-		if(ref.getVerse() > echp.getNum(ref.getChapter())){
+		if(ref.getVerse() > book.getNum(ref.getChapter())){
 			return false;
 		}
 		// TODO: Check if verse is missing in Translation

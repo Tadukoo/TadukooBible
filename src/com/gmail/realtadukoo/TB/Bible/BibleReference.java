@@ -1,5 +1,7 @@
 package com.gmail.realtadukoo.TB.Bible;
 
+import com.gmail.realtadukoo.TB.Constants.EnumBible;
+
 public class BibleReference{
 	private EnumBible book;
 	private int chapter;

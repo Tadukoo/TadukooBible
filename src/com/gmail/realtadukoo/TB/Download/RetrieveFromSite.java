@@ -6,8 +6,8 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import com.gmail.realtadukoo.TB.Bible.EnumBible;
 import com.gmail.realtadukoo.TB.Bible.EnumTranslations;
+import com.gmail.realtadukoo.TB.Constants.EnumBible;
 
 public class RetrieveFromSite{
 	
@@ -45,8 +45,8 @@ public class RetrieveFromSite{
 			}
 			
 			if(line != null){
-				if(line.contains(tran.getName())){
-					line = line.split(tran.getName() + "</a></span><br />")[1];
+				if(line.contains(tran.getTranslation())){
+					line = line.split(tran.getTranslation() + "</a></span><br />")[1];
 					line = line.split("<span class=")[0];
 					line = line.replaceAll("<i>", "");
 					line = line.replaceAll("</i>", "");

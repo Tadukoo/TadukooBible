@@ -5,12 +5,14 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.gmail.realtadukoo.TB.Constants.EnumBible;
+
 public class BibleReferenceTest{
 	private BibleReference ref;
 	
 	@Before
 	public void setup(){
-		ref = new BibleReference(EnumBible.JOHN1, 3, 16, EnumTranslations.ESV);
+		ref = new BibleReference(EnumBible.FIRST_JOHN, 3, 16, EnumTranslations.ESV);
 	}
 	
 	@Test
@@ -25,7 +27,7 @@ public class BibleReferenceTest{
 	
 	@Test
 	public void testConstructor(){
-		assertEquals(EnumBible.JOHN1, ref.getBook());
+		assertEquals(EnumBible.FIRST_JOHN, ref.getBook());
 		assertEquals(3, ref.getChapter());
 		assertEquals(16, ref.getVerse());
 		assertEquals(EnumTranslations.ESV, ref.getTranslation());

@@ -8,9 +8,8 @@ import java.util.HashMap;
 import java.util.Properties;
 
 import com.gmail.realtadukoo.TB.Bible.BibleReference;
-import com.gmail.realtadukoo.TB.Bible.EnumBible;
-import com.gmail.realtadukoo.TB.Bible.EnumBibleChapters;
 import com.gmail.realtadukoo.TB.Bible.EnumTranslations;
+import com.gmail.realtadukoo.TB.Constants.EnumBible;
 
 public class FindMissing extends Command{
 	
@@ -36,9 +35,8 @@ public class FindMissing extends Command{
 		int count = 1;
 		for(int i = 1; i <= 66; i++){
 			EnumBible book = EnumBible.fromInt(i);
-			EnumBibleChapters echp = EnumBibleChapters.fromBook(book.getBook());
-			for(int j = 1; j <= echp.getChps().length; j++){
-				for(int k = 1; k <= echp.getNum(j); k++){
+			for(int j = 1; j <= book.getChps().length; j++){
+				for(int k = 1; k <= book.getNum(j); k++){
 					if(GetVerse.getVerse(new BibleReference(book, j, k, tran)) == null){
 						System.out.println("Missing " + book.getBook() + " " + j + ":" + k);
 						missing.setProperty(tran.getAbbreviation() + count, 

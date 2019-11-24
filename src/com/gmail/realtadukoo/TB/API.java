@@ -1,14 +1,13 @@
 package com.gmail.realtadukoo.TB;
 
-public class API{
-	private static final String version = "Alpha v.0.1.1-devR24";
-	private static final String releaseDate = "May 23, 2019";
-	
-	public static String getVersion(){
-		return version;
-	}
-	
-	public static String getReleaseDate(){
-		return releaseDate;
-	}
+/**
+ * Class used for storing API related information.
+ * 
+ * @author Logan Ferree (Tadukoo)
+ */
+public final class API{
+	/** The current version of the API */
+	public static final String version = "2.0-Alpha1-SNAPSHOT";
+	/** The release date of this API version */
+	public static final String releaseDate = "November 23, 2019";
 }

@@ -6,8 +6,8 @@ import java.util.HashMap;
 import java.util.Properties;
 
 import com.gmail.realtadukoo.TB.Bible.BibleReference;
-import com.gmail.realtadukoo.TB.Bible.EnumBible;
 import com.gmail.realtadukoo.TB.Bible.EnumTranslations;
+import com.gmail.realtadukoo.TB.Constants.EnumBible;
 import com.gmail.realtadukoo.TB.Download.RetrieveFromSite;
 import com.gmail.realtadukoo.TB.Files.VerseFile;
 
