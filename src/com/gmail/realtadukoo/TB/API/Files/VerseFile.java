@@ -12,6 +12,12 @@ import com.gmail.realtadukoo.TB.API.Constants.EnumBible;
 import com.gmail.realtadukoo.TB.API.Constants.EnumTranslation;
 import com.gmail.realtadukoo.TB.API.Constants.FilePaths;
 
+/**
+ * Provides functions for dealing with the files used to store Bible verses.
+ * 
+ * @author Logan Ferree (Tadukoo)
+ * @version 2.0-Alpha1-SNAPSHOT (Definitely earlier)
+ */
 public class VerseFile{
 	
 	/**
