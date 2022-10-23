@@ -10,6 +10,7 @@ import com.github.tadukoo.bible.api.Constants.EnumTranslation;
 import com.github.tadukoo.bible.api.Download.RetrieveFromSite;
 import com.github.tadukoo.bible.api.Files.VerseFile;
 import com.github.tadukoo.bible.api.Bible.BibleReference;
+import com.github.tadukoo.util.ListUtil;
 
 public class GetVerse extends Command{
 	
@@ -19,7 +20,7 @@ public class GetVerse extends Command{
 	}
 	
 	@Override
-	public String[] runCommand(List<String> args){
+	public List<String> runCommand(List<String> args){
 		// Get arguments
 		Map<String, Object> objs = getArgsAsObjects(args);
 		BibleReference ref = (BibleReference) objs.get("Reference");
@@ -28,7 +29,7 @@ public class GetVerse extends Command{
 		String verse = GetVerse.getVerse(ref);
 		
 		// Return verse
-		return new String[]{verse};
+		return ListUtil.createList(verse);
 	}
 	
 	public static String getVerse(BibleReference ref){

@@ -2,10 +2,11 @@ package com.github.tadukoo.bible.api.Command;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class CommandHandler{
 	
-	public String[] handleCommand(String command) throws IOException{
+	public List<String> handleCommand(String command) throws IOException{
 		if(!command.startsWith("/")){
 			throw new IllegalArgumentException("Not a command. Commands start with /");
 		}

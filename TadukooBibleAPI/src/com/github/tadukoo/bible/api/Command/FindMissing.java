@@ -3,6 +3,7 @@ package com.github.tadukoo.bible.api.Command;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
@@ -18,7 +19,7 @@ public class FindMissing extends Command{
 	}
 	
 	@Override
-	public String[] runCommand(List<String> args){
+	public List<String> runCommand(List<String> args){
 		// Get arguments
 		Map<String, Object> objs = getArgsAsObjects(args);
 		EnumTranslation tran = (EnumTranslation) objs.get("Tran");
@@ -27,7 +28,7 @@ public class FindMissing extends Command{
 		findMissing(tran);
 		
 		// Return
-		return new String[]{};
+		return new ArrayList<>();
 	}
 	
 	public static void findMissing(EnumTranslation tran){

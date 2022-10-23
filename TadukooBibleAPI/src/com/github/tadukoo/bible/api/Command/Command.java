@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 public abstract class Command{
-	private String formatString;
+	private final String formatString;
 	
 	public Command(String formatString){
 		this.formatString = formatString;
@@ -18,5 +18,5 @@ public abstract class Command{
 		return ArgumentParsing.parseArgsUsingFormatString(formatString, args);
 	}
 	
-	public abstract String[] runCommand(List<String> args);
+	public abstract List<String> runCommand(List<String> args);
 }
