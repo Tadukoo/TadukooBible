@@ -1,6 +1,5 @@
 package com.github.tadukoo.bible.api.Bible;
 
-import com.github.tadukoo.bible.api.Constants.BibleBooks;
 import com.github.tadukoo.bible.api.Constants.EnumBible;
 import com.github.tadukoo.bible.api.Constants.EnumTranslation;
 import org.junit.jupiter.api.BeforeEach;
@@ -56,7 +55,7 @@ public class BibleReferenceTest{
 	public void testBookFromNameBuilder(){
 		// Build reference using bookFromName
 		BibleReference ref = BibleReference.builder()
-											.bookFromName(BibleBooks.AMOS)
+											.bookFromName("Amos")
 											.build();
 		
 		// Check that book was properly set

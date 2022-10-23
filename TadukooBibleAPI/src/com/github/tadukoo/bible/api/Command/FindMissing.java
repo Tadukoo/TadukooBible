@@ -35,7 +35,10 @@ public class FindMissing extends Command{
 		int count = 1;
 		for(int i = 1; i <= 66; i++){
 			EnumBible book = EnumBible.fromInt(i);
-			for(int j = 1; j <= book.getChps().length; j++){
+			if(book == null){
+				throw new IllegalStateException("Failed to find Bible book #" + i + " in EnumBible");
+			}
+			for(int j = 1; j <= book.getNumChapters(); j++){
 				for(int k = 1; k <= book.getNumVersesInChp(j); k++){
 					BibleReference ref = BibleReference.builder()
 														.book(book)

@@ -1,5 +1,10 @@
 package com.github.tadukoo.bible.api.Constants;
 
+import com.github.tadukoo.util.ListUtil;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Contains information about the books in the Apocrypha, Deuterocanon, 
  * Pseudepigrapha, etc.
@@ -13,7 +18,7 @@ public enum EnumApocrypha{
 	 * <br>Aliases: Tobias
 	 */
 	TOBIT("Tobit",
-			new String[]{"Tobias"}),
+			ListUtil.createList("Tobias")),
 	/**
 	 * <b><u>Judith</u></b>
 	 * <br>Aliases: None
@@ -29,13 +34,13 @@ public enum EnumApocrypha{
 	 * <br>Aliases: 1 Machabees
 	 */
 	FIRST_MACCABEES("1 Maccabees",
-			new String[]{"1 Machabees"}),
+			ListUtil.createList("1 Machabees")),
 	/**
 	 * <b><u>2 Maccabees</u></b>
 	 * <br>Aliases: 2 Machabees
 	 */
 	SECOND_MACCABEES("2 Maccabees",
-			new String[]{"2 Machabees"}),
+			ListUtil.createList("2 Machabees")),
 	/**
 	 * <b><u>Wisdom</u></b>
 	 * <br>Aliases: None
@@ -46,7 +51,7 @@ public enum EnumApocrypha{
 	 * <br>Aliases: Ecclesiasticus
 	 */
 	SIRACH("Sirach",
-			new String[]{"Ecclesiasticus"}),
+			ListUtil.createList("Ecclesiasticus")),
 	/**
 	 * <b><u>Baruch</u></b>
 	 * <br>Aliases: None
@@ -57,7 +62,7 @@ public enum EnumApocrypha{
 	 * <br>Aliases: Letter of Baruch
 	 */
 	LETTER_OF_JEREMIAH("Letter of Jeremiah",
-			new String[]{"Letter of Baruch"}),
+			ListUtil.createList("Letter of Baruch")),
 	/**
 	 * <b><u>Prayer of Azariah and the Song of the Three Young Men</u></b>
 	 * <br>Aliases: None
@@ -79,25 +84,25 @@ public enum EnumApocrypha{
 	 * <br>Aliases: 3 Esdras, 3 Ezra
 	 */
 	FIRST_ESDRAS("1 Esdras",
-			new String[]{"3 Esdras", "3 Ezra"}),
+			ListUtil.createList("3 Esdras", "3 Ezra")),
 	/**
 	 * <b><u>2 Esdras</u></b>
 	 * <br>Aliases: 4 Esdras, 4 Ezra, 5 Ezra, 6 Ezra
 	 */
 	SECOND_ESDRAS("2 Esdras",
-			new String[]{"4 Esdras", "4 Ezra", "5 Ezra", "6 Ezra"}),
+			ListUtil.createList("4 Esdras", "4 Ezra", "5 Ezra", "6 Ezra")),
 	/**
 	 * <b><u>3 Maccabees</u></b>
 	 * <br>Aliases: 3 Machabees
 	 */
 	THIRD_MACCABEES("3 Maccabees",
-			new String[]{"3 Machabees"}),
+			ListUtil.createList("3 Machabees")),
 	/**
 	 * <b><u>4 Maccabees</u></b>
 	 * <br>Aliases: 4 Machabees
 	 */
 	FOURTH_MACCABEES("4 Maccabees",
-			new String[]{"4 Machabees"}),
+			ListUtil.createList("4 Machabees")),
 	/**
 	 * <b><u>Psalm 151</u></b>
 	 * <br>Aliases: None
@@ -118,7 +123,7 @@ public enum EnumApocrypha{
 	 * <br>Aliases: Rest of Baruch, Paralipomena of Jeremiah
 	 */
 	FOURTH_BARUCH("4 Baruch",
-			new String[]{"Rest of Baruch", "Paralipomena of Jeremiah"}),
+			ListUtil.createList("Rest of Baruch", "Paralipomena of Jeremiah")),
 	/**
 	 * <b><u>Jubilees</u></b>
 	 * <br>Aliases: None
@@ -129,7 +134,7 @@ public enum EnumApocrypha{
 	 * <br>Aliases: 1 Enoch
 	 */
 	ENOCH("Enoch",
-			new String[]{"1 Enoch"}),
+			ListUtil.createList("1 Enoch")),
 	/**
 	 * <b><u>1 Meqabyan</u></b>
 	 * <br>Aliases: None
@@ -147,20 +152,20 @@ public enum EnumApocrypha{
 	THIRD_MEQABYAN("3 Meqabyan");
 	
 	/** The name of the book */
-	private String book;
-	/** An array of aliases for the book */
-	private String[] aliases;
+	private final String book;
+	/** A list of aliases for the book */
+	private final List<String> aliases;
 	
 	/**
 	 * Constructs an EnumApocrypha with the given book name.
-	 * <br>Aliases is initialized as an empty array (since there are 
+	 * <br>Aliases is initialized as an empty list (since there are
 	 * no aliases).
 	 * 
 	 * @param book The name of the book
 	 */
-	private EnumApocrypha(String book){
+	EnumApocrypha(String book){
 		this.book = book;
-		aliases = new String[0];
+		aliases = new ArrayList<>();
 	}
 	
 	/**
@@ -169,7 +174,7 @@ public enum EnumApocrypha{
 	 * @param book The name of the book
 	 * @param aliases The aliases of this book
 	 */
-	private EnumApocrypha(String book, String[] aliases){
+	EnumApocrypha(String book, List<String> aliases){
 		this.book = book;
 		this.aliases = aliases;
 	}
@@ -182,9 +187,9 @@ public enum EnumApocrypha{
 	}
 	
 	/**
-	 * @return The array of aliases for this book
+	 * @return The list of aliases for this book
 	 */
-	public String[] getAliases(){
+	public List<String> getAliases(){
 		return aliases;
 	}
 	
@@ -213,7 +218,7 @@ public enum EnumApocrypha{
 	 * @return The found EnumApocrypha, or null if none could be found
 	 */
 	public static EnumApocrypha fromString(String text){
-		// Search through the existing EnumApocryphas for the text
+		// Search through the existing EnumApocrypha values for the text
 		for(EnumApocrypha book: EnumApocrypha.values()){
 			// Check against the book name
 			if(book.getBook().equalsIgnoreCase(text)){

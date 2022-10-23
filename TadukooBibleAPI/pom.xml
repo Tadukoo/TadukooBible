@@ -4,8 +4,8 @@
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
+		<groupId>com.github.tadukoo.bible</groupId>
 		<artifactId>TadukooBible</artifactId>
-		<groupId>com.gmail.realtadukoo.TB</groupId>
 		<version>2.0-Alpha1-SNAPSHOT</version>
 	</parent>
 	<artifactId>TadukooBibleAPI</artifactId>
