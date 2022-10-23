@@ -1,0 +1,44 @@
+package com.github.tadukoo.bible.api.Constants.Verses;
+
+public class Exodus{
+	public static final int CHP1 = 22;
+	public static final int CHP2 = 25;
+	public static final int CHP3 = 22;
+	public static final int CHP4 = 31;
+	public static final int CHP5 = 23;
+	public static final int CHP6 = 30;
+	public static final int CHP7 = 25;
+	public static final int CHP8 = 32;
+	public static final int CHP9 = 35;
+	public static final int CHP10 = 29;
+	public static final int CHP11 = 10;
+	public static final int CHP12 = 51;
+	public static final int CHP13 = 22;
+	public static final int CHP14 = 31;
+	public static final int CHP15 = 27;
+	public static final int CHP16 = 36;
+	public static final int CHP17 = 16;
+	public static final int CHP18 = 27;
+	public static final int CHP19 = 25;
+	public static final int CHP20 = 26;
+	public static final int CHP21 = 36;
+	public static final int CHP22 = 31;
+	public static final int CHP23 = 33;
+	public static final int CHP24 = 18;
+	public static final int CHP25 = 40;
+	public static final int CHP26 = 37;
+	public static final int CHP27 = 21;
+	public static final int CHP28 = 43;
+	public static final int CHP29 = 46;
+	public static final int CHP30 = 38;
+	public static final int CHP31 = 18;
+	public static final int CHP32 = 35;
+	public static final int CHP33 = 23;
+	public static final int CHP34 = 35;
+	public static final int CHP35 = 35;
+	public static final int CHP36 = 38;
+	public static final int CHP37 = 29;
+	public static final int CHP38 = 31;
+	public static final int CHP39 = 43;
+	public static final int CHP40 = 38;
+}
