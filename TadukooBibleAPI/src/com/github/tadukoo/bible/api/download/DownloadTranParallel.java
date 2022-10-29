@@ -3,7 +3,7 @@ package com.github.tadukoo.bible.api.download;
 import com.github.tadukoo.bible.api.bible.BibleReference;
 import com.github.tadukoo.bible.api.constant.EnumBible;
 import com.github.tadukoo.bible.api.constant.EnumTranslation;
-import com.github.tadukoo.bible.api.files.VerseFile;
+import com.github.tadukoo.bible.api.storage.VerseFile;
 import com.github.tadukoo.bible.api.download.retrieval.RetrieveChapterFromSite;
 import com.github.tadukoo.bible.api.download.retrieval.RetrieveChapterFromSiteBH;
 import com.github.tadukoo.util.parallel.ParallelRunner;

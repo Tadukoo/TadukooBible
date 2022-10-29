@@ -1,4 +1,4 @@
-package com.github.tadukoo.bible.api.files;
+package com.github.tadukoo.bible.api.storage;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -10,7 +10,6 @@ import java.util.Properties;
 
 import com.github.tadukoo.bible.api.constant.EnumBible;
 import com.github.tadukoo.bible.api.constant.EnumTranslation;
-import com.github.tadukoo.bible.api.constant.FilePaths;
 
 /**
  * Provides functions for dealing with the files used to store Bible verses.
@@ -19,6 +18,7 @@ import com.github.tadukoo.bible.api.constant.FilePaths;
  * @version 2.0-Alpha1-SNAPSHOT (Definitely earlier)
  */
 public class VerseFile{
+	private static final String BIBLE_BOOK_FOLDER = "test-bible/";
 	
 	/**
 	 * Retrieves the verse file for the given Bible book for the given translation.
@@ -30,7 +30,7 @@ public class VerseFile{
 	public static Properties getBook(EnumBible book, EnumTranslation tran) throws IOException{
 		// Load the file as Properties from Bible/<translationAbbreviation>/<bookName>.properties
 		Properties prop = new Properties();
-		InputStream is = new FileInputStream(FilePaths.BIBLE_BOOK_FOLDER + tran.getAbbreviation() + "/" + 
+		InputStream is = new FileInputStream(BIBLE_BOOK_FOLDER + tran.getAbbreviation() + "/" +
 				book.getName().replaceAll(" ", "") + ".properties");
 		prop.load(is);
 		return prop;
@@ -57,13 +57,13 @@ public class VerseFile{
 		}
 		
 		// Create the directory if it doesn't exist
-		File directory = new File(FilePaths.BIBLE_BOOK_FOLDER + tran.getAbbreviation());
+		File directory = new File(BIBLE_BOOK_FOLDER + tran.getAbbreviation());
 		if(!directory.exists()){
 			directory.mkdirs();
 		}
 		
 		// Save the new properties to the file
-		OutputStream os = new FileOutputStream(FilePaths.BIBLE_BOOK_FOLDER + tran.getAbbreviation() + "/" +
+		OutputStream os = new FileOutputStream(BIBLE_BOOK_FOLDER + tran.getAbbreviation() + "/" +
 				book.getName().replaceAll(" ", "") + ".properties");
 		prop.store(os, "No Comment");
 	}
