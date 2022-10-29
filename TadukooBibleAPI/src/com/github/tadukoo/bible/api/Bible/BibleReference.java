@@ -176,7 +176,7 @@ public class BibleReference{
 	 * @param verse The verse as an int
 	 * @param translation The translation as an EnumTranslation
 	 */
-	private BibleReference(EnumBible book, int chapter, int verse, EnumTranslation translation){
+	private BibleReference(EnumBible book, Integer chapter, Integer verse, EnumTranslation translation){
 		this.book = book;
 		this.chapter = chapter;
 		this.verse = verse;
@@ -218,7 +218,7 @@ public class BibleReference{
 	/**
 	 * @return The verse for this Bible Reference
 	 */
-	public int getVerse(){
+	public Integer getVerse(){
 		return verse;
 	}
 	

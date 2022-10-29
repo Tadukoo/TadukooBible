@@ -29,8 +29,8 @@ public class BibleReferenceTest{
 		
 		// Check that it defaults to the correct things
 		assertNull(ref.getBook());
-		assertEquals(-1, ref.getChapter());
-		assertEquals(-1, ref.getVerse());
+		assertNull(ref.getChapter());
+		assertNull(ref.getVerse());
 		assertNull(ref.getTranslation());
 	}
 	
