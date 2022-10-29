@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.github.tadukoo.bible.api.Constants.EnumTranslation;
-import com.github.tadukoo.bible.api.Download.DownloadTran;
+import com.github.tadukoo.bible.api.download.DownloadTranParallel;
 
 public class DownloadTranCommand extends Command{
 	
@@ -17,7 +17,12 @@ public class DownloadTranCommand extends Command{
 	public List<String> runCommand(List<String> args){
 		Map<String, Object> objs = getArgsAsObjects(args);
 		EnumTranslation tran = (EnumTranslation) objs.get("Tran");
-		DownloadTran.run(tran);
+		try{
+			DownloadTranParallel par = new DownloadTranParallel(tran);
+			par.runParallelWork();
+		}catch(Throwable t){
+			t.printStackTrace();
+		}
 		return new ArrayList<>();
 	}
 }

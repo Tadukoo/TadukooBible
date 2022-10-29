@@ -3,8 +3,9 @@ package com.github.tadukoo.bible.api.Command;
 import java.util.List;
 import java.util.Map;
 
-import com.github.tadukoo.bible.api.Download.RetrieveFromSite;
 import com.github.tadukoo.bible.api.Bible.BibleReference;
+import com.github.tadukoo.bible.api.download.retrieval.RetrieveChapterFromSite;
+import com.github.tadukoo.bible.api.download.retrieval.RetrieveChapterFromSiteBH;
 import com.github.tadukoo.util.ListUtil;
 
 public class DownloadCommand extends Command{
@@ -17,7 +18,9 @@ public class DownloadCommand extends Command{
 	public List<String> runCommand(List<String> args){
 		Map<String, Object> objs = getArgsAsObjects(args);
 		BibleReference ref = (BibleReference) objs.get("Reference");
-		String verse = RetrieveFromSite.getVerse(ref.getBook(), ref.getChapter(), ref.getVerse(), ref.getTranslation());
+		RetrieveChapterFromSite retriever = new RetrieveChapterFromSiteBH();
+		Map<Integer, String> verses = retriever.getVerses(ref);
+		String verse = verses.get(ref.getVerse());
 		return ListUtil.createList(verse);
 	}
 }

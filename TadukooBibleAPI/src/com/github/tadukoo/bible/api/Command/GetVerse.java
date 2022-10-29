@@ -7,9 +7,10 @@ import java.util.Properties;
 
 import com.github.tadukoo.bible.api.Constants.EnumBible;
 import com.github.tadukoo.bible.api.Constants.EnumTranslation;
-import com.github.tadukoo.bible.api.Download.RetrieveFromSite;
 import com.github.tadukoo.bible.api.Files.VerseFile;
 import com.github.tadukoo.bible.api.Bible.BibleReference;
+import com.github.tadukoo.bible.api.download.retrieval.RetrieveChapterFromSite;
+import com.github.tadukoo.bible.api.download.retrieval.RetrieveChapterFromSiteBH;
 import com.github.tadukoo.util.ListUtil;
 
 public class GetVerse extends Command{
@@ -42,25 +43,29 @@ public class GetVerse extends Command{
 			prop = VerseFile.getBook(book, tran);
 			String v = prop.getProperty("ch" + chp + "v" + verse);
 			if(v == null){
-				v = RetrieveFromSite.getVerse(book, chp, verse, tran);
-				if(v != null){
-					prop.setProperty("ch" + chp + "v" + verse, v);
-					VerseFile.saveBook(prop, book, tran);
-				}
+				v = retrieveFromSite(ref, prop);
 			}
 			return v;
 		}catch(IOException e){
-			String v = RetrieveFromSite.getVerse(book, chp, verse, tran);
-			if(v != null){
-				prop = new Properties();
-				prop.setProperty("ch" + chp + "v" + verse, v);
-				try{
-					VerseFile.saveBook(prop, book, tran);
-				}catch(IOException e2){
-					e2.printStackTrace();
-				}
+			String v = null;
+			try{
+				v = retrieveFromSite(ref, new Properties());
+			}catch(IOException e2){
+				e2.printStackTrace();
 			}
 			return v;
 		}
+	}
+	
+	private static String retrieveFromSite(BibleReference ref, Properties prop) throws IOException{
+		RetrieveChapterFromSite retriever = new RetrieveChapterFromSiteBH();
+		Map<Integer, String> verses = retriever.getVerses(ref);
+		
+		for(int verseNum: verses.keySet()){
+			prop.setProperty("ch" + ref.getChapter() + "v" + verseNum, verses.get(verseNum));
+		}
+		VerseFile.saveBook(prop, ref.getBook(), ref.getTranslation());
+		
+		return verses.get(ref.getVerse());
 	}
 }
