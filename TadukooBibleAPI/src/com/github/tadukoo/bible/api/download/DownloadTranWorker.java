@@ -1,6 +1,6 @@
 package com.github.tadukoo.bible.api.download;
 
-import com.github.tadukoo.bible.api.Bible.BibleReference;
+import com.github.tadukoo.bible.api.bible.BibleReference;
 import com.github.tadukoo.util.parallel.ParallelWorker;
 import com.github.tadukoo.util.parallel.Queue;
 

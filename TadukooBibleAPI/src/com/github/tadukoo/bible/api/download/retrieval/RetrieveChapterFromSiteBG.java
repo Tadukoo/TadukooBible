@@ -1,6 +1,6 @@
 package com.github.tadukoo.bible.api.download.retrieval;
 
-import com.github.tadukoo.bible.api.Bible.BibleReference;
+import com.github.tadukoo.bible.api.bible.BibleReference;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
