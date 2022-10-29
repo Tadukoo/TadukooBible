@@ -14,10 +14,21 @@
 	<description>The new Tadukoo Bible Project that will be for more than just Bukkit.</description>
 	<modules>
 		<module>TadukooBibleAPI</module>
+		<module>TadukooBibleCommandAPI</module>
 	</modules>
 	<properties>
 		<!-- Info -->
 		<shortName>TadukooBible</shortName>
 		<tadukoo.util.version>0.6-Beta-SNAPSHOT</tadukoo.util.version>
 	</properties>
+	<dependencyManagement>
+		<dependencies>
+			<!-- Tadukoo Bible API Dependency -->
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>TadukooBibleAPI</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 </project>

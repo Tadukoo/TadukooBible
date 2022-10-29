@@ -10,5 +10,5 @@ public class FilePaths{
 	/**
 	 * Base folder for storing Bible verses and related information
 	 */
-	public static final String BIBLE_BOOK_FOLDER = "com/github/tadukoo/bible/api/bible/";
+	public static final String BIBLE_BOOK_FOLDER = "bible/";
 }

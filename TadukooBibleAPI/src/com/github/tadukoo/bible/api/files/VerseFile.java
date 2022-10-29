@@ -57,7 +57,7 @@ public class VerseFile{
 		}
 		
 		// Create the directory if it doesn't exist
-		File directory = new File("com/github/tadukoo/bible/api/bible/" + tran.getAbbreviation());
+		File directory = new File(FilePaths.BIBLE_BOOK_FOLDER + tran.getAbbreviation());
 		if(!directory.exists()){
 			directory.mkdirs();
 		}
