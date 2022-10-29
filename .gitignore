@@ -7,4 +7,4 @@
 *.iml
 target/
 pom.xml.versionsBackup
-bible/
+test-bible/
