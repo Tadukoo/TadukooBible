@@ -122,11 +122,11 @@ public enum EnumTranslation{
 	YLT("Young's Literal Translation", "YLT");
 	
 	/** The name of the translation */
-	private String translation;
+	private final String name;
 	/** The abbreviation for the translation */
-	private String abbreviation;
+	private final String abbreviation;
 	/** The string that needs to be matched to find the translation on BibleHub.com */
-	private String siteString;
+	private final String siteString;
 	
 	/**
 	 * Constructs an EnumTranslation with the given translation 
@@ -134,13 +134,13 @@ public enum EnumTranslation{
 	 * <br>It will then using the translation name as the string to match on 
 	 * BibleHub.com as well.
 	 * 
-	 * @param translation The name of the translation
+	 * @param name The name of the translation
 	 * @param abbreviation The abbreviation for the translation
 	 */
-	private EnumTranslation(String translation, String abbreviation){
-		this.translation = translation;
+	EnumTranslation(String name, String abbreviation){
+		this.name = name;
 		this.abbreviation = abbreviation;
-		siteString = translation;
+		siteString = name;
 	}
 	
 	/**
@@ -149,12 +149,12 @@ public enum EnumTranslation{
 	 * <br>The site string is used to match against on BibleHub.com to find 
 	 * the translation there among others.
 	 * 
-	 * @param translation The name of the translation
+	 * @param name The name of the translation
 	 * @param abbreviation The abbreviation for the translation
 	 * @param siteString The string to match against on BibleHub.com
 	 */
-	private EnumTranslation(String translation, String abbreviation, String siteString){
-		this.translation = translation;
+	EnumTranslation(String name, String abbreviation, String siteString){
+		this.name = name;
 		this.abbreviation = abbreviation;
 		this.siteString = siteString;
 	}
@@ -162,8 +162,8 @@ public enum EnumTranslation{
 	/**
 	 * @return The name of the translation
 	 */
-	public String getTranslation(){
-		return translation;
+	public String getName(){
+		return name;
 	}
 	
 	/**
@@ -183,13 +183,13 @@ public enum EnumTranslation{
 	/**
 	 * Find an EnumTranslation based on the translation name.
 	 * 
-	 * @param translation The translation name to find
+	 * @param name The translation name to find
 	 * @return The found EnumTranslation, or null if none could be found
 	 */
-	public static EnumTranslation fromTranslation(String translation){
+	public static EnumTranslation fromName(String name){
 		// Search through the existing EnumTranslations for the translation name
 		for(EnumTranslation tran: EnumTranslation.values()){
-			if(tran.getTranslation().equalsIgnoreCase(translation)){
+			if(tran.getName().equalsIgnoreCase(name)){
 				return tran;
 			}
 		}

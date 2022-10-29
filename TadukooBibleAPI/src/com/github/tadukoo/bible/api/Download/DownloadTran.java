@@ -68,8 +68,8 @@ public class DownloadTran{
 			}
 			runBookPart(tran, book, thisChpStart, thisChpEnd);
 		}
-		System.out.println("Finished " + EnumBible.fromInt(bookStart).getBook() + " " + chpStart + 
-				" through " + EnumBible.fromInt(bookEnd).getBook() + " " + chpEnd);
+		System.out.println("Finished " + EnumBible.fromInt(bookStart).getName() + " " + chpStart +
+				" through " + EnumBible.fromInt(bookEnd).getName() + " " + chpEnd);
 	}
 	
 	private static void runBookPart(EnumTranslation tran, EnumBible book, int chpStart, int chpEnd){
@@ -81,11 +81,11 @@ public class DownloadTran{
 					verses.setProperty("ch" + j + "v" + k, verse);
 				}
 			}
-			System.out.println("Finished Chapter " + j + " of " + book.getBook());
+			System.out.println("Finished Chapter " + j + " of " + book.getName());
 		}
 		try{
 			VerseFile.saveBook(verses, book, tran);
-			System.out.println("Finished " + book.getBook() + " Chapters " + chpStart + " through " + 
+			System.out.println("Finished " + book.getName() + " Chapters " + chpStart + " through " +
 					chpEnd);
 		}catch(IOException e){
 			e.printStackTrace();
@@ -105,11 +105,11 @@ public class DownloadTran{
 			for(int k = 1; k <= book.getNumVersesInChp(j); k++){
 				verses.setProperty("ch" + j + "v" + k, RetrieveFromSite.getVerse(book, j, k, tran));
 			}
-			System.out.println("Finished Chapter " + j + " of " + book.getBook());
+			System.out.println("Finished Chapter " + j + " of " + book.getName());
 		}
 		try{
 			VerseFile.saveBook(verses, book, tran);
-			System.out.println("Finished " + book.getBook());
+			System.out.println("Finished " + book.getName());
 		}catch(IOException e){
 			e.printStackTrace();
 		}

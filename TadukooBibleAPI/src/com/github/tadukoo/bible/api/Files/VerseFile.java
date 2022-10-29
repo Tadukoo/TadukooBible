@@ -31,7 +31,7 @@ public class VerseFile{
 		// Load the file as Properties from Bible/<translationAbbreviation>/<bookName>.properties
 		Properties prop = new Properties();
 		InputStream is = new FileInputStream(FilePaths.BIBLE_BOOK_FOLDER + tran.getAbbreviation() + "/" + 
-				book.getBook().replaceAll(" ", "") + ".properties");
+				book.getName().replaceAll(" ", "") + ".properties");
 		prop.load(is);
 		return prop;
 	}
@@ -64,7 +64,7 @@ public class VerseFile{
 		
 		// Save the new properties to the file
 		OutputStream os = new FileOutputStream(FilePaths.BIBLE_BOOK_FOLDER + tran.getAbbreviation() + "/" +
-				book.getBook().replaceAll(" ", "") + ".properties");
+				book.getName().replaceAll(" ", "") + ".properties");
 		prop.store(os, "No Comment");
 	}
 }

@@ -14,332 +14,332 @@ public class EnumBibleTest{
 	 */
 	@Test
 	public void testGenesisName(){
-		assertEquals("Genesis", GENESIS.getBook());
+		assertEquals("Genesis", GENESIS.getName());
 	}
 	
 	@Test
 	public void testExodusName(){
-		assertEquals("Exodus", EXODUS.getBook());
+		assertEquals("Exodus", EXODUS.getName());
 	}
 	
 	@Test
 	public void testLeviticusName(){
-		assertEquals("Leviticus", LEVITICUS.getBook());
+		assertEquals("Leviticus", LEVITICUS.getName());
 	}
 	
 	@Test
 	public void testNumbersName(){
-		assertEquals("Numbers", NUMBERS.getBook());
+		assertEquals("Numbers", NUMBERS.getName());
 	}
 	
 	@Test
 	public void testDeuteronomyName(){
-		assertEquals("Deuteronomy", DEUTERONOMY.getBook());
+		assertEquals("Deuteronomy", DEUTERONOMY.getName());
 	}
 	
 	@Test
 	public void testJoshuaName(){
-		assertEquals("Joshua", JOSHUA.getBook());
+		assertEquals("Joshua", JOSHUA.getName());
 	}
 	
 	@Test
 	public void testJudgesName(){
-		assertEquals("Judges", JUDGES.getBook());
+		assertEquals("Judges", JUDGES.getName());
 	}
 	
 	@Test
 	public void testRuthName(){
-		assertEquals("Ruth", RUTH.getBook());
+		assertEquals("Ruth", RUTH.getName());
 	}
 	
 	@Test
 	public void testFirstSamuelName(){
-		assertEquals("1 Samuel", FIRST_SAMUEL.getBook());
+		assertEquals("1 Samuel", FIRST_SAMUEL.getName());
 	}
 	
 	@Test
 	public void testSecondSamuelName(){
-		assertEquals("2 Samuel", SECOND_SAMUEL.getBook());
+		assertEquals("2 Samuel", SECOND_SAMUEL.getName());
 	}
 	
 	@Test
 	public void testFirstKingsName(){
-		assertEquals("1 Kings", FIRST_KINGS.getBook());
+		assertEquals("1 Kings", FIRST_KINGS.getName());
 	}
 	
 	@Test
 	public void testSecondKingsName(){
-		assertEquals("2 Kings", SECOND_KINGS.getBook());
+		assertEquals("2 Kings", SECOND_KINGS.getName());
 	}
 	
 	@Test
 	public void testFirstChroniclesName(){
-		assertEquals("1 Chronicles", FIRST_CHRONICLES.getBook());
+		assertEquals("1 Chronicles", FIRST_CHRONICLES.getName());
 	}
 	
 	@Test
 	public void testSecondChroniclesName(){
-		assertEquals("2 Chronicles", SECOND_CHRONICLES.getBook());
+		assertEquals("2 Chronicles", SECOND_CHRONICLES.getName());
 	}
 	
 	@Test
 	public void testEzraName(){
-		assertEquals("Ezra", EZRA.getBook());
+		assertEquals("Ezra", EZRA.getName());
 	}
 	
 	@Test
 	public void testNehemiahName(){
-		assertEquals("Nehemiah", NEHEMIAH.getBook());
+		assertEquals("Nehemiah", NEHEMIAH.getName());
 	}
 	
 	@Test
 	public void testEstherName(){
-		assertEquals("Esther", ESTHER.getBook());
+		assertEquals("Esther", ESTHER.getName());
 	}
 	
 	@Test
 	public void testJobName(){
-		assertEquals("Job", JOB.getBook());
+		assertEquals("Job", JOB.getName());
 	}
 	
 	@Test
 	public void testPsalmsName(){
-		assertEquals("Psalms", PSALMS.getBook());
+		assertEquals("Psalms", PSALMS.getName());
 	}
 	
 	@Test
 	public void testProverbsName(){
-		assertEquals("Proverbs", PROVERBS.getBook());
+		assertEquals("Proverbs", PROVERBS.getName());
 	}
 	
 	@Test
 	public void testEcclesiastesName(){
-		assertEquals("Ecclesiastes", ECCLESIASTES.getBook());
+		assertEquals("Ecclesiastes", ECCLESIASTES.getName());
 	}
 	
 	@Test
 	public void testSongofSongsName(){
-		assertEquals("Song of Songs", SONG_OF_SONGS.getBook());
+		assertEquals("Song of Songs", SONG_OF_SONGS.getName());
 	}
 	
 	@Test
 	public void testIsaiahName(){
-		assertEquals("Isaiah", ISAIAH.getBook());
+		assertEquals("Isaiah", ISAIAH.getName());
 	}
 	
 	@Test
 	public void testJeremiahName(){
-		assertEquals("Jeremiah", JEREMIAH.getBook());
+		assertEquals("Jeremiah", JEREMIAH.getName());
 	}
 	
 	@Test
 	public void testLamentationsName(){
-		assertEquals("Lamentations", LAMENTATIONS.getBook());
+		assertEquals("Lamentations", LAMENTATIONS.getName());
 	}
 	
 	@Test
 	public void testEzekielName(){
-		assertEquals("Ezekiel", EZEKIEL.getBook());
+		assertEquals("Ezekiel", EZEKIEL.getName());
 	}
 	
 	@Test
 	public void testDanielName(){
-		assertEquals("Daniel", DANIEL.getBook());
+		assertEquals("Daniel", DANIEL.getName());
 	}
 	
 	@Test
 	public void testHoseaName(){
-		assertEquals("Hosea", HOSEA.getBook());
+		assertEquals("Hosea", HOSEA.getName());
 	}
 	
 	@Test
 	public void testJoelName(){
-		assertEquals("Joel", JOEL.getBook());
+		assertEquals("Joel", JOEL.getName());
 	}
 	
 	@Test
 	public void testAmosName(){
-		assertEquals("Amos", AMOS.getBook());
+		assertEquals("Amos", AMOS.getName());
 	}
 	
 	@Test
 	public void testObadiahName(){
-		assertEquals("Obadiah", OBADIAH.getBook());
+		assertEquals("Obadiah", OBADIAH.getName());
 	}
 	
 	@Test
 	public void testJonahName(){
-		assertEquals("Jonah", JONAH.getBook());
+		assertEquals("Jonah", JONAH.getName());
 	}
 	
 	@Test
 	public void testMicahName(){
-		assertEquals("Micah", MICAH.getBook());
+		assertEquals("Micah", MICAH.getName());
 	}
 	
 	@Test
 	public void testNahumName(){
-		assertEquals("Nahum", NAHUM.getBook());
+		assertEquals("Nahum", NAHUM.getName());
 	}
 	
 	@Test
 	public void testHabakkukName(){
-		assertEquals("Habakkuk", HABAKKUK.getBook());
+		assertEquals("Habakkuk", HABAKKUK.getName());
 	}
 	
 	@Test
 	public void testZephaniahName(){
-		assertEquals("Zephaniah", ZEPHANIAH.getBook());
+		assertEquals("Zephaniah", ZEPHANIAH.getName());
 	}
 	
 	@Test
 	public void testHaggaiName(){
-		assertEquals("Haggai", HAGGAI.getBook());
+		assertEquals("Haggai", HAGGAI.getName());
 	}
 	
 	@Test
 	public void testZechariahName(){
-		assertEquals("Zechariah", ZECHARIAH.getBook());
+		assertEquals("Zechariah", ZECHARIAH.getName());
 	}
 	
 	@Test
 	public void testMalachiName(){
-		assertEquals("Malachi", MALACHI.getBook());
+		assertEquals("Malachi", MALACHI.getName());
 	}
 	
 	@Test
 	public void testMatthewName(){
-		assertEquals("Matthew", MATTHEW.getBook());
+		assertEquals("Matthew", MATTHEW.getName());
 	}
 	
 	@Test
 	public void testMarkName(){
-		assertEquals("Mark", MARK.getBook());
+		assertEquals("Mark", MARK.getName());
 	}
 	
 	@Test
 	public void testLukeName(){
-		assertEquals("Luke", LUKE.getBook());
+		assertEquals("Luke", LUKE.getName());
 	}
 	
 	@Test
 	public void testJohnName(){
-		assertEquals("John", JOHN.getBook());
+		assertEquals("John", JOHN.getName());
 	}
 	
 	@Test
 	public void testActsName(){
-		assertEquals("Acts", ACTS.getBook());
+		assertEquals("Acts", ACTS.getName());
 	}
 	
 	@Test
 	public void testRomansName(){
-		assertEquals("Romans", ROMANS.getBook());
+		assertEquals("Romans", ROMANS.getName());
 	}
 	
 	@Test
 	public void testFirstCorinthiansName(){
-		assertEquals("1 Corinthians", FIRST_CORINTHIANS.getBook());
+		assertEquals("1 Corinthians", FIRST_CORINTHIANS.getName());
 	}
 	
 	@Test
 	public void testSecondCorinthiansName(){
-		assertEquals("2 Corinthians", SECOND_CORINTHIANS.getBook());
+		assertEquals("2 Corinthians", SECOND_CORINTHIANS.getName());
 	}
 	
 	@Test
 	public void testGalatiansName(){
-		assertEquals("Galatians", GALATIANS.getBook());
+		assertEquals("Galatians", GALATIANS.getName());
 	}
 	
 	@Test
 	public void testEphesiansName(){
-		assertEquals("Ephesians", EPHESIANS.getBook());
+		assertEquals("Ephesians", EPHESIANS.getName());
 	}
 	
 	@Test
 	public void testPhilippiansName(){
-		assertEquals("Philippians", PHILIPPIANS.getBook());
+		assertEquals("Philippians", PHILIPPIANS.getName());
 	}
 	
 	@Test
 	public void testColossiansName(){
-		assertEquals("Colossians", COLOSSIANS.getBook());
+		assertEquals("Colossians", COLOSSIANS.getName());
 	}
 	
 	@Test
 	public void testFirstThessaloniansName(){
-		assertEquals("1 Thessalonians", FIRST_THESSALONIANS.getBook());
+		assertEquals("1 Thessalonians", FIRST_THESSALONIANS.getName());
 	}
 	
 	@Test
 	public void testSecondThessaloniansName(){
-		assertEquals("2 Thessalonians", SECOND_THESSALONIANS.getBook());
+		assertEquals("2 Thessalonians", SECOND_THESSALONIANS.getName());
 	}
 	
 	@Test
 	public void testFirstTimothyName(){
-		assertEquals("1 Timothy", FIRST_TIMOTHY.getBook());
+		assertEquals("1 Timothy", FIRST_TIMOTHY.getName());
 	}
 	
 	@Test
 	public void testSecondTimothyName(){
-		assertEquals("2 Timothy", SECOND_TIMOTHY.getBook());
+		assertEquals("2 Timothy", SECOND_TIMOTHY.getName());
 	}
 	
 	@Test
 	public void testTitusName(){
-		assertEquals("Titus", TITUS.getBook());
+		assertEquals("Titus", TITUS.getName());
 	}
 	
 	@Test
 	public void testPhilemonName(){
-		assertEquals("Philemon", PHILEMON.getBook());
+		assertEquals("Philemon", PHILEMON.getName());
 	}
 	
 	@Test
 	public void testHebrewsName(){
-		assertEquals("Hebrews", HEBREWS.getBook());
+		assertEquals("Hebrews", HEBREWS.getName());
 	}
 	
 	@Test
 	public void testJamesName(){
-		assertEquals("James", JAMES.getBook());
+		assertEquals("James", JAMES.getName());
 	}
 	
 	@Test
 	public void testFirstPeterName(){
-		assertEquals("1 Peter", FIRST_PETER.getBook());
+		assertEquals("1 Peter", FIRST_PETER.getName());
 	}
 	
 	@Test
 	public void testSecondPeterName(){
-		assertEquals("2 Peter", SECOND_PETER.getBook());
+		assertEquals("2 Peter", SECOND_PETER.getName());
 	}
 	
 	@Test
 	public void testFirstJohnName(){
-		assertEquals("1 John", FIRST_JOHN.getBook());
+		assertEquals("1 John", FIRST_JOHN.getName());
 	}
 	
 	@Test
 	public void testSecondJohnName(){
-		assertEquals("2 John", SECOND_JOHN.getBook());
+		assertEquals("2 John", SECOND_JOHN.getName());
 	}
 	
 	@Test
 	public void testThirdJohnName(){
-		assertEquals("3 John", THIRD_JOHN.getBook());
+		assertEquals("3 John", THIRD_JOHN.getName());
 	}
 	
 	@Test
 	public void testJudeName(){
-		assertEquals("Jude", JUDE.getBook());
+		assertEquals("Jude", JUDE.getName());
 	}
 	
 	@Test
 	public void testRevelationName(){
-		assertEquals("Revelation", REVELATION.getBook());
+		assertEquals("Revelation", REVELATION.getName());
 	}
 	
 	/*

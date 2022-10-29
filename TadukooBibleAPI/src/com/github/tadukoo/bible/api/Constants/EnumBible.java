@@ -888,7 +888,7 @@ public enum EnumBible{
 			));
 	
 	/** The name of the book */
-	private final String book;
+	private final String name;
 	/** The author of the book */
 	private final String author;
 	/** A list of aliases for the book */
@@ -902,12 +902,12 @@ public enum EnumBible{
 	 * <br>Aliases is initialized as an empty list (since there are
 	 * no aliases).
 	 * 
-	 * @param book The name of the book
+	 * @param name The name of the book
 	 * @param author The author of the book
 	 * @param chapters The number of verses in each chapter of this book
 	 */
-	EnumBible(String book, String author, List<Integer> chapters){
-		this.book = book;
+	EnumBible(String name, String author, List<Integer> chapters){
+		this.name = name;
 		this.author = author;
 		aliases = new ArrayList<>();
 		this.chapters = chapters;
@@ -917,13 +917,13 @@ public enum EnumBible{
 	 * Constructs an EnumBible with the given book name, author, aliases, 
 	 * and list of number of verses in each chapter.
 	 * 
-	 * @param book The name of the book
+	 * @param name The name of the book
 	 * @param author The author of the book
 	 * @param aliases The aliases of this book
 	 * @param chapters The number of verses in each chapter of this book
 	 */
-	EnumBible(String book, String author, List<String> aliases, List<Integer> chapters){
-		this.book = book;
+	EnumBible(String name, String author, List<String> aliases, List<Integer> chapters){
+		this.name = name;
 		this.author = author;
 		this.aliases = aliases;
 		this.chapters = chapters;
@@ -932,8 +932,8 @@ public enum EnumBible{
 	/**
 	 * @return The name of this book
 	 */
-	public String getBook(){
-		return book;
+	public String getName(){
+		return name;
 	}
 	
 	/**
@@ -980,7 +980,7 @@ public enum EnumBible{
 	public static EnumBible fromBook(String bookName){
 		// Search through the existing EnumBibles for the book name
 		for(EnumBible book: EnumBible.values()){
-			if(book.getBook().equalsIgnoreCase(bookName)){
+			if(book.getName().equalsIgnoreCase(bookName)){
 				return book;
 			}
 		}
@@ -999,7 +999,7 @@ public enum EnumBible{
 		// Search through the existing EnumBibles for the text
 		for(EnumBible book: EnumBible.values()){
 			// Check against the book name
-			if(book.getBook().equalsIgnoreCase(text)){
+			if(book.getName().equalsIgnoreCase(text)){
 				return book;
 			}
 			// Check against the aliases

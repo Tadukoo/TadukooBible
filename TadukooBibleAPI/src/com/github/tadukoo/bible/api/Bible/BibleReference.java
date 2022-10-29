@@ -25,8 +25,8 @@ public class BibleReference{
 	 * Defaults are:
 	 * <ul>
 	 * <li>book = null</li>
-	 * <li>chapter = -1</li>
-	 * <li>verse = -1</li>
+	 * <li>chapter = null</li>
+	 * <li>verse = null</li>
 	 * <li>translation = null</li>
 	 * </ul>
 	 * 
@@ -36,9 +36,9 @@ public class BibleReference{
 		/** The book of the Bible in this reference */
 		private EnumBible book = null;
 		/** The chapter for this reference */
-		private int chapter = -1;
+		private Integer chapter = null;
 		/** The verse for this reference */
-		private int verse = -1;
+		private Integer verse = null;
 		/** The translation for this reference */
 		private EnumTranslation translation = null;
 		
@@ -120,12 +120,12 @@ public class BibleReference{
 		
 		/**
 		 * Set the translation to be used on the BibleReference object, using the given 
-		 * translation name. Uses {@link EnumTranslation#fromTranslation} to set the translation to use.
+		 * translation name. Uses {@link EnumTranslation#fromName} to set the translation to use.
 		 * 
 		 * @param tranName The translation name for the BibleReference object
 		 */
 		public BibleReferenceBuilder translationFromName(String tranName){
-			this.translation = EnumTranslation.fromTranslation(tranName);
+			this.translation = EnumTranslation.fromName(tranName);
 			return this;
 		}
 		
@@ -162,9 +162,9 @@ public class BibleReference{
 	/** The book for this Bible Reference (includes other useful info in EnumBible) */
 	private EnumBible book;
 	/** The chapter for this Bible Reference */
-	private int chapter;
+	private Integer chapter;
 	/** The verse for this Bible Reference */
-	private int verse;
+	private Integer verse;
 	/** The translation for this Bible Reference (includes other useful info in EnumTranslation) */
 	private EnumTranslation translation;
 	
@@ -202,7 +202,7 @@ public class BibleReference{
 	/**
 	 * @return The chapter for this Bible Reference
 	 */
-	public int getChapter(){
+	public Integer getChapter(){
 		return chapter;
 	}
 	
@@ -245,5 +245,41 @@ public class BibleReference{
 	 */
 	public void setTranslation(EnumTranslation translation){
 		this.translation = translation;
+	}
+	
+	@Override
+	public String toString(){
+		StringBuilder refString = new StringBuilder();
+		
+		// Add book if we have it
+		if(book != null){
+			refString.append(book.getName());
+		}
+		
+		// Add chapter if we have it
+		if(chapter != null){
+			if(!refString.isEmpty()){
+				refString.append(' ');
+			}
+			refString.append(chapter);
+		}
+		
+		// Add verse if we have it
+		if(verse != null){
+			if(chapter == null){
+				refString.append(' ');
+			}
+			refString.append(':').append(verse);
+		}
+		
+		// Add translation if we have it
+		if(translation != null){
+			if(!refString.isEmpty()){
+				refString.append(' ');
+			}
+			refString.append(translation.getName());
+		}
+		
+		return refString.toString();
 	}
 }

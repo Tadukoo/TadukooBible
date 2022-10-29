@@ -14,7 +14,7 @@ public class RetrieveFromSite{
 	public static String getVerse(EnumBible ebook, int chp, int v, EnumTranslation tran){
 		String verse = null;
 		
-		String book = ebook.getBook();
+		String book = ebook.getName();
 		book = book.toLowerCase();
 		book = book.replace(" ", "_");
 		if(book.equals("song_of_songs")){

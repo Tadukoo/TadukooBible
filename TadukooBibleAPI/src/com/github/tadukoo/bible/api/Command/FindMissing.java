@@ -48,14 +48,14 @@ public class FindMissing extends Command{
 														.translation(tran)
 														.build();
 					if(GetVerse.getVerse(ref) == null){
-						System.out.println("Missing " + book.getBook() + " " + j + ":" + k);
+						System.out.println("Missing " + book.getName() + " " + j + ":" + k);
 						missing.setProperty(tran.getAbbreviation() + count, 
-								book.getBook() + " " + j + ":" + k);
+								book.getName() + " " + j + ":" + k);
 						count++;
 					}
 				}
 			}
-			System.out.println("Checked " + book.getBook());
+			System.out.println("Checked " + book.getName());
 		}
 		OutputStream os;
 		try{

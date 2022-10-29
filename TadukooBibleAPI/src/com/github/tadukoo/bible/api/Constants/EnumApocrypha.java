@@ -152,7 +152,7 @@ public enum EnumApocrypha{
 	THIRD_MEQABYAN("3 Meqabyan");
 	
 	/** The name of the book */
-	private final String book;
+	private final String name;
 	/** A list of aliases for the book */
 	private final List<String> aliases;
 	
@@ -161,29 +161,29 @@ public enum EnumApocrypha{
 	 * <br>Aliases is initialized as an empty list (since there are
 	 * no aliases).
 	 * 
-	 * @param book The name of the book
+	 * @param name The name of the book
 	 */
-	EnumApocrypha(String book){
-		this.book = book;
+	EnumApocrypha(String name){
+		this.name = name;
 		aliases = new ArrayList<>();
 	}
 	
 	/**
 	 * Constructs an EnumApocrypha with the given book name and aliases.
 	 * 
-	 * @param book The name of the book
+	 * @param name The name of the book
 	 * @param aliases The aliases of this book
 	 */
-	EnumApocrypha(String book, List<String> aliases){
-		this.book = book;
+	EnumApocrypha(String name, List<String> aliases){
+		this.name = name;
 		this.aliases = aliases;
 	}
 	
 	/**
 	 * @return The name of this book
 	 */
-	public String getBook(){
-		return book;
+	public String getName(){
+		return name;
 	}
 	
 	/**
@@ -202,7 +202,7 @@ public enum EnumApocrypha{
 	public static EnumApocrypha fromBook(String bookName){
 		// Search through the existing EnumApocryphas for the book name
 		for(EnumApocrypha book: EnumApocrypha.values()){
-			if(book.getBook().equalsIgnoreCase(bookName)){
+			if(book.getName().equalsIgnoreCase(bookName)){
 				return book;
 			}
 		}
@@ -221,7 +221,7 @@ public enum EnumApocrypha{
 		// Search through the existing EnumApocrypha values for the text
 		for(EnumApocrypha book: EnumApocrypha.values()){
 			// Check against the book name
-			if(book.getBook().equalsIgnoreCase(text)){
+			if(book.getName().equalsIgnoreCase(text)){
 				return book;
 			}
 			// Check against the aliases
