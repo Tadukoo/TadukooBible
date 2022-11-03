@@ -14,12 +14,12 @@ import java.util.List;
 public enum BaseCommands{
 	/**
 	 * Represents the /bible command
-	 * Aliases: b
+	 * <br>Aliases: b
 	 */
 	BIBLE("bible", ListUtil.createList("b")),
 	/**
 	 * Represents the /apocrypha command
-	 * Aliases: a
+	 * <br>Aliases: a
 	 */
 	APOCRYPHA("apocrypha", ListUtil.createList("a"));
 	

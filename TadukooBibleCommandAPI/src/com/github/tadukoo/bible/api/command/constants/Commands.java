@@ -20,32 +20,32 @@ import java.util.List;
 public enum Commands{
 	/**
 	 * The command to get verses
-	 * Command: get
-	 * Aliases: getVerse, verseGet, readVerse, verseRead, readV, vRead
-	 * Command Class: {@link GetVerse}
+	 * <br>Command: get
+	 * <br>Aliases: getVerse, verseGet, readVerse, verseRead, readV, vRead
+	 * <br>Command Class: {@link GetVerse}
 	 */
 	GET_VERSE("get",
 			ListUtil.createList("getVerse", "verseGet", "readVerse", "verseRead", "readV", "vRead"),
 			new GetVerse()),
 	/**
 	 * The command to download verses
-	 * Command: download
-	 * Aliases: none
-	 * Command Class: {@link DownloadCommand}
+	 * <br>Command: download
+	 * <br>Aliases: none
+	 * <br>Command Class: {@link DownloadCommand}
 	 */
 	DOWNLOAD("download", new DownloadCommand()),
 	/**
 	 * The command to download an entire translation
-	 * Command: downloadTran
-	 * Aliases: none
-	 * Command Class: {@link DownloadTranCommand}
+	 * <br>Command: downloadTran
+	 * <br>Aliases: none
+	 * <br>Command Class: {@link DownloadTranCommand}
 	 */
 	DOWNLOAD_TRAN("downloadTran", new DownloadTranCommand()),
 	/**
 	 * The command to find missing verses in a translation
-	 * Command: missing
-	 * Aliases: none
-	 * Command Class: {@link FindMissing}
+	 * <br>Command: missing
+	 * <br>Aliases: none
+	 * <br>Command Class: {@link FindMissing}
 	 */
 	MISSING("missing", new FindMissing());
 	
