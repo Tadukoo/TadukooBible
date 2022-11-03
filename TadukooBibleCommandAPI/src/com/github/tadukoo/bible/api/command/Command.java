@@ -1,16 +1,22 @@
 package com.github.tadukoo.bible.api.command;
 
 import com.github.tadukoo.bible.api.bible.Settings;
+import com.github.tadukoo.bible.api.command.constants.BaseCommands;
 
 import java.util.List;
 import java.util.Map;
 
 public abstract class Command{
+	protected BaseCommands baseCommand;
 	protected Settings settings;
 	private final String formatString;
 	
 	public Command(String formatString){
 		this.formatString = formatString;
+	}
+	
+	public void setBaseCommand(BaseCommands baseCommand){
+		this.baseCommand = baseCommand;
 	}
 	
 	public void setSettings(Settings settings){

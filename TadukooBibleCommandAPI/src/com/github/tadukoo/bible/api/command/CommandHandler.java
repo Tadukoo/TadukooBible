@@ -1,6 +1,9 @@
 package com.github.tadukoo.bible.api.command;
 
 import com.github.tadukoo.bible.api.bible.Settings;
+import com.github.tadukoo.bible.api.command.constants.BaseCommands;
+import com.github.tadukoo.bible.api.command.constants.Commands;
+import com.github.tadukoo.util.ListUtil;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,30 +17,34 @@ public class CommandHandler{
 	}
 	
 	public List<String> handleCommand(String fullCommand){
+		// Ensure the command starts with a / and split it into parts
 		if(!fullCommand.startsWith("/")){
 			throw new IllegalArgumentException("Not a command. Commands start with /");
 		}
 		String[] parts = fullCommand.split(" ");
-		String baseCommand = parts[0].substring(1);
-		EnumCmdAliases base = EnumCmdAliases.baseFromString(baseCommand);
-		if(base == null){
-			throw new IllegalArgumentException("Command '" + baseCommand + "' not recognized");
+		
+		// Grab the base command from the command string
+		String base = parts[0].substring(1);
+		BaseCommands baseCommand = BaseCommands.getBaseCommand(base);
+		if(baseCommand == null){
+			throw new IllegalArgumentException("Command '/" + base + "' not recognized");
 		}
-		ArrayList<String> args = new ArrayList<>(Arrays.asList(parts).subList(1, parts.length));
-		switch(base){
-			case BIBLE:
-				try{
-					Command command = CommandEnum.getCommand(args.get(0));
-					if(command == null){
-						throw new IllegalArgumentException("Unknown Bible command: " + args.get(0));
-					}
-					command.setSettings(settings);
-					return command.runCommand(args);
-				}catch(Throwable t){
-					t.printStackTrace();
-				}
-			default:
-				throw new IllegalArgumentException("Command " + base + " not found.");
+		
+		// Split the arguments and grab the actual command and set the necessary settings on it
+		List<String> args = new ArrayList<>(Arrays.asList(parts).subList(1, parts.length));
+		Command command = Commands.getCommand(args.get(0));
+		if(command == null){
+			throw new IllegalArgumentException("Unknown command: /" + base + " " + args.get(0));
+		}
+		command.setBaseCommand(baseCommand);
+		command.setSettings(settings);
+		
+		try{
+			return command.runCommand(args);
+		}catch(Throwable t){
+			t.printStackTrace();
+			return ListUtil.createList("Something went wrong in running the command. " +
+					"Check the logs for more information");
 		}
 	}
 }
