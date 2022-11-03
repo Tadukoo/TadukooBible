@@ -977,7 +977,7 @@ public enum EnumBible{
 	 * @param bookName The book name to find
 	 * @return The found EnumBible, or null if none could be found
 	 */
-	public static EnumBible fromBook(String bookName){
+	public static EnumBible fromName(String bookName){
 		// Search through the existing EnumBibles for the book name
 		for(EnumBible book: EnumBible.values()){
 			if(book.getName().equalsIgnoreCase(bookName)){

@@ -199,7 +199,7 @@ public enum EnumApocrypha{
 	 * @param bookName The book name to find
 	 * @return The found EnumApocrypha, or null if none could be found
 	 */
-	public static EnumApocrypha fromBook(String bookName){
+	public static EnumApocrypha fromName(String bookName){
 		// Search through the existing EnumApocryphas for the book name
 		for(EnumApocrypha book: EnumApocrypha.values()){
 			if(book.getName().equalsIgnoreCase(bookName)){

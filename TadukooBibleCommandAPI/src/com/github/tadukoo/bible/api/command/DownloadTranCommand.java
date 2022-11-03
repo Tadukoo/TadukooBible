@@ -18,7 +18,7 @@ public class DownloadTranCommand extends Command{
 		Map<String, Object> objs = getArgsAsObjects(args);
 		EnumTranslation tran = (EnumTranslation) objs.get("Tran");
 		try{
-			DownloadTranParallel par = new DownloadTranParallel(tran);
+			DownloadTranParallel par = new DownloadTranParallel(settings, tran);
 			par.runParallelWork();
 		}catch(Throwable t){
 			t.printStackTrace();

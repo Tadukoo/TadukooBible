@@ -1,5 +1,6 @@
 package com.github.tadukoo.bible.api.download;
 
+import com.github.tadukoo.bible.api.bible.Settings;
 import com.github.tadukoo.bible.api.constant.EnumTranslation;
 import com.github.tadukoo.util.ListUtil;
 
@@ -19,7 +20,7 @@ public class RunDownloadTranParallel{
 			throws InterruptedException, InvocationTargetException, NoSuchMethodException,
 			InstantiationException, IllegalAccessException{
 		for(EnumTranslation tran: getTranslationsToRun()){
-			DownloadTranParallel parallel = new DownloadTranParallel(tran);
+			DownloadTranParallel parallel = new DownloadTranParallel(new Settings(), tran);
 			parallel.runParallelWork();
 			System.out.println("Finished " + tran.getName());
 		}

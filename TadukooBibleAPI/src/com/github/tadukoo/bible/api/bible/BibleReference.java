@@ -57,12 +57,12 @@ public class BibleReference{
 		
 		/**
 		 * Set the book to be used on the BibleReference object, using the given 
-		 * book name. Uses {@link EnumBible#fromBook} to set the book to use.
+		 * book name. Uses {@link EnumBible#fromName} to set the book to use.
 		 * 
 		 * @param bookName The book name for the BibleReference object
 		 */
 		public BibleReferenceBuilder bookFromName(String bookName){
-			this.book = EnumBible.fromBook(bookName);
+			this.book = EnumBible.fromName(bookName);
 			return this;
 		}
 		

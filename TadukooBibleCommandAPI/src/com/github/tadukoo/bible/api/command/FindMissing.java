@@ -11,6 +11,8 @@ import java.util.Properties;
 import com.github.tadukoo.bible.api.constant.EnumBible;
 import com.github.tadukoo.bible.api.constant.EnumTranslation;
 import com.github.tadukoo.bible.api.bible.BibleReference;
+import com.github.tadukoo.bible.api.verse.VerseRetrieval;
+import com.github.tadukoo.util.StringUtil;
 
 public class FindMissing extends Command{
 	
@@ -19,7 +21,7 @@ public class FindMissing extends Command{
 	}
 	
 	@Override
-	public List<String> runCommand(List<String> args){
+	public List<String> runCommand(List<String> args) throws Throwable{
 		// Get arguments
 		Map<String, Object> objs = getArgsAsObjects(args);
 		EnumTranslation tran = (EnumTranslation) objs.get("Tran");
@@ -31,7 +33,7 @@ public class FindMissing extends Command{
 		return new ArrayList<>();
 	}
 	
-	public static void findMissing(EnumTranslation tran){
+	public void findMissing(EnumTranslation tran) throws Throwable{
 		Properties missing = new Properties();
 		int count = 1;
 		for(int i = 1; i <= 66; i++){
@@ -47,7 +49,8 @@ public class FindMissing extends Command{
 														.verse(k)
 														.translation(tran)
 														.build();
-					if(GetVerse.getVerse(ref) == null){
+					VerseRetrieval verseRetrieval = new VerseRetrieval(settings);
+					if(StringUtil.isBlank(verseRetrieval.getVerse(ref))){
 						System.out.println("Missing " + book.getName() + " " + j + ":" + k);
 						missing.setProperty(tran.getAbbreviation() + count, 
 								book.getName() + " " + j + ":" + k);
