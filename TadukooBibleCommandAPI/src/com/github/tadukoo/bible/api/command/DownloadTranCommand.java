@@ -6,6 +6,7 @@ import java.util.Map;
 
 import com.github.tadukoo.bible.api.constant.EnumTranslation;
 import com.github.tadukoo.bible.api.download.DownloadTranParallel;
+import com.github.tadukoo.util.ListUtil;
 
 public class DownloadTranCommand extends Command{
 	
@@ -21,8 +22,10 @@ public class DownloadTranCommand extends Command{
 			DownloadTranParallel par = new DownloadTranParallel(settings, tran);
 			par.runParallelWork();
 		}catch(Throwable t){
-			t.printStackTrace();
+			logger.logError("Error in running download translation for translation '" + tran.getName() + "'", t);
+			return ListUtil.createList("Something went wrong in downloading the translation. " +
+					"Check the logs for more details");
 		}
-		return new ArrayList<>();
+		return ListUtil.createList();
 	}
 }

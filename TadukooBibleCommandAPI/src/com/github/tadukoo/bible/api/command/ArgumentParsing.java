@@ -11,7 +11,7 @@ import com.github.tadukoo.bible.api.bible.BibleReference;
 public class ArgumentParsing{
 	
 	public static Map<String, Object> parseArgsUsingFormatString(String format, List<String> args){
-		Map<String, Object> objs = new HashMap<String, Object>();
+		Map<String, Object> objs = new HashMap<>();
 		
 		// TODO: This
 		String[] pieces = format.split("> <");

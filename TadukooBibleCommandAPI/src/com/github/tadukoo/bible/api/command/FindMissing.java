@@ -39,7 +39,8 @@ public class FindMissing extends Command{
 		for(int i = 1; i <= 66; i++){
 			EnumBible book = EnumBible.fromInt(i);
 			if(book == null){
-				throw new IllegalStateException("Failed to find Bible book #" + i + " in EnumBible");
+				logger.logDebugFine("Failed to find Bible book #" + i + " in EnumBible");
+				continue;
 			}
 			for(int j = 1; j <= book.getNumChapters(); j++){
 				for(int k = 1; k <= book.getNumVersesInChp(j); k++){
@@ -51,14 +52,14 @@ public class FindMissing extends Command{
 														.build();
 					VerseRetrieval verseRetrieval = new VerseRetrieval(settings);
 					if(StringUtil.isBlank(verseRetrieval.getVerse(ref))){
-						System.out.println("Missing " + book.getName() + " " + j + ":" + k);
+						logger.logDebugFine("Missing " + book.getName() + " " + j + ":" + k);
 						missing.setProperty(tran.getAbbreviation() + count, 
 								book.getName() + " " + j + ":" + k);
 						count++;
 					}
 				}
 			}
-			System.out.println("Checked " + book.getName());
+			logger.logDebugFine("Checked " + book.getName() + " for missing verses");
 		}
 		OutputStream os;
 		try{
