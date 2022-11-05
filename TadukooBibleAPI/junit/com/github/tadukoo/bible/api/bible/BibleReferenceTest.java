@@ -1,6 +1,6 @@
 package com.github.tadukoo.bible.api.bible;
 
-import com.github.tadukoo.bible.api.constant.EnumBible;
+import com.github.tadukoo.bible.api.constant.BibleBooks;
 import com.github.tadukoo.bible.api.constant.EnumTranslation;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,7 +14,7 @@ public class BibleReferenceTest{
 	@BeforeEach
 	public void setup(){
 		reference = BibleReference.builder()
-									.book(EnumBible.JOHN)
+									.book(BibleBooks.JOHN)
 									.chapter(3)
 									.verse(16)
 									.translation(EnumTranslation.NIV)
@@ -38,14 +38,14 @@ public class BibleReferenceTest{
 	public void testFullBuilder(){
 		// Build reference with full parameters
 		BibleReference ref = BibleReference.builder()
-											.book(EnumBible.FIRST_JOHN)
+											.book(BibleBooks.FIRST_JOHN)
 											.chapter(3)
 											.verse(16)
 											.translation(EnumTranslation.ESV)
 											.build();
 		
 		// Check that it properly sets everything
-		assertEquals(EnumBible.FIRST_JOHN, ref.getBook());
+		assertEquals(BibleBooks.FIRST_JOHN, ref.getBook());
 		assertEquals(3, ref.getChapter());
 		assertEquals(16, ref.getVerse());
 		assertEquals(EnumTranslation.ESV, ref.getTranslation());
@@ -59,7 +59,7 @@ public class BibleReferenceTest{
 											.build();
 		
 		// Check that book was properly set
-		assertEquals(EnumBible.AMOS, ref.getBook());
+		assertEquals(BibleBooks.AMOS, ref.getBook());
 	}
 	
 	@Test
@@ -70,7 +70,7 @@ public class BibleReferenceTest{
 											.build();
 		
 		// Check that book was properly set
-		assertEquals(EnumBible.EXODUS, ref.getBook());
+		assertEquals(BibleBooks.EXODUS, ref.getBook());
 	}
 	
 	@Test
@@ -81,7 +81,7 @@ public class BibleReferenceTest{
 											.build();
 		
 		// Check that book was properly set
-		assertEquals(EnumBible.MALACHI, ref.getBook());
+		assertEquals(BibleBooks.MALACHI, ref.getBook());
 	}
 	
 	@Test
@@ -109,12 +109,12 @@ public class BibleReferenceTest{
 	@Test
 	public void testSetBook(){
 		// Change book to Acts and check that it changed
-		reference.setBook(EnumBible.ACTS);
-		assertEquals(EnumBible.ACTS, reference.getBook());
+		reference.setBook(BibleBooks.ACTS);
+		assertEquals(BibleBooks.ACTS, reference.getBook());
 		
 		// Change book to Ecclesiastes and check that it changed
-		reference.setBook(EnumBible.ECCLESIASTES);
-		assertEquals(EnumBible.ECCLESIASTES, reference.getBook());
+		reference.setBook(BibleBooks.ECCLESIASTES);
+		assertEquals(BibleBooks.ECCLESIASTES, reference.getBook());
 	}
 	
 	@Test

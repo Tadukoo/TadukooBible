@@ -1,6 +1,6 @@
 package com.github.tadukoo.bible.api.bible;
 
-import com.github.tadukoo.bible.api.constant.EnumBible;
+import com.github.tadukoo.bible.api.constant.BibleBooks;
 import com.github.tadukoo.bible.api.constant.EnumTranslation;
 
 /**
@@ -34,7 +34,7 @@ public class BibleReference{
 	 */
 	public static class BibleReferenceBuilder{
 		/** The book of the Bible in this reference */
-		private EnumBible book = null;
+		private BibleBooks book = null;
 		/** The chapter for this reference */
 		private Integer chapter = null;
 		/** The verse for this reference */
@@ -50,41 +50,41 @@ public class BibleReference{
 		 * 
 		 * @param book The EnumBible book for the BibleReference object
 		 */
-		public BibleReferenceBuilder book(EnumBible book){
+		public BibleReferenceBuilder book(BibleBooks book){
 			this.book = book;
 			return this;
 		}
 		
 		/**
 		 * Set the book to be used on the BibleReference object, using the given 
-		 * book name. Uses {@link EnumBible#fromName} to set the book to use.
+		 * book name. Uses {@link BibleBooks#fromName} to set the book to use.
 		 * 
 		 * @param bookName The book name for the BibleReference object
 		 */
 		public BibleReferenceBuilder bookFromName(String bookName){
-			this.book = EnumBible.fromName(bookName);
+			this.book = BibleBooks.fromName(bookName);
 			return this;
 		}
 		
 		/**
 		 * Set the book to be used on the BibleReference object, using the given 
-		 * string. Uses {@link EnumBible#fromString} to set the book to use.
+		 * string. Uses {@link BibleBooks#fromString} to set the book to use.
 		 * 
 		 * @param text The book name or alias for the BibleReference object
 		 */
 		public BibleReferenceBuilder bookFromString(String text){
-			this.book = EnumBible.fromString(text);
+			this.book = BibleBooks.fromString(text);
 			return this;
 		}
 		
 		/**
 		 * Set the book to be used on the BibleReference object, using the given 
-		 * book number. Uses {@link EnumBible#fromInt} to set the book to use.
+		 * book number. Uses {@link BibleBooks#fromInt} to set the book to use.
 		 * 
 		 * @param bookNum The book number for the BibleReference object
 		 */
 		public BibleReferenceBuilder bookFromNumber(int bookNum){
-			this.book = EnumBible.fromInt(bookNum);
+			this.book = BibleBooks.fromInt(bookNum);
 			return this;
 		}
 		
@@ -160,7 +160,7 @@ public class BibleReference{
 	}
 	
 	/** The book for this Bible Reference (includes other useful info in EnumBible) */
-	private EnumBible book;
+	private BibleBooks book;
 	/** The chapter for this Bible Reference */
 	private Integer chapter;
 	/** The verse for this Bible Reference */
@@ -176,7 +176,7 @@ public class BibleReference{
 	 * @param verse The verse as an int
 	 * @param translation The translation as an EnumTranslation
 	 */
-	private BibleReference(EnumBible book, Integer chapter, Integer verse, EnumTranslation translation){
+	private BibleReference(BibleBooks book, Integer chapter, Integer verse, EnumTranslation translation){
 		this.book = book;
 		this.chapter = chapter;
 		this.verse = verse;
@@ -186,7 +186,7 @@ public class BibleReference{
 	/**
 	 * @return The EnumBible book for this Bible Reference
 	 */
-	public EnumBible getBook(){
+	public BibleBooks getBook(){
 		return book;
 	}
 	
@@ -195,7 +195,7 @@ public class BibleReference{
 	 * 
 	 * @param book The new EnumBible book
 	 */
-	public void setBook(EnumBible book){
+	public void setBook(BibleBooks book){
 		this.book = book;
 	}
 	

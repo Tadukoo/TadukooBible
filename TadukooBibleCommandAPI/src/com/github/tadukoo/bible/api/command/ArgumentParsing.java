@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.github.tadukoo.bible.api.constant.EnumBible;
+import com.github.tadukoo.bible.api.constant.BibleBooks;
 import com.github.tadukoo.bible.api.constant.EnumTranslation;
 import com.github.tadukoo.bible.api.bible.BibleReference;
 
@@ -57,7 +57,7 @@ public class ArgumentParsing{
 		if(ref.getBook() == null || ref.getChapter() < 1 || ref.getVerse() < 1 || ref.getTranslation() == null){
 			return false;
 		}
-		EnumBible book = ref.getBook();
+		BibleBooks book = ref.getBook();
 		if(ref.getChapter() > book.getNumChapters()){
 			return false;
 		}
@@ -68,17 +68,17 @@ public class ArgumentParsing{
 		return true;
 	}
 	
-	public static EnumBible isBibleBook(List<String> args){
-		EnumBible book = EnumBible.fromString(args.get(0));
+	public static BibleBooks isBibleBook(List<String> args){
+		BibleBooks book = BibleBooks.fromString(args.get(0));
 		if(book != null){
 			args.remove(0);
 		}else{
-			book = EnumBible.fromString(args.get(0) + " " + args.get(1));
+			book = BibleBooks.fromString(args.get(0) + " " + args.get(1));
 			if(book != null){
 				args.remove(0);
 				args.remove(0);
 			}else{
-				book = EnumBible.fromString(args.get(0) + " " + args.get(1) + " " + args.get(2));
+				book = BibleBooks.fromString(args.get(0) + " " + args.get(1) + " " + args.get(2));
 				if(book != null){
 					args.remove(0);
 					args.remove(0);

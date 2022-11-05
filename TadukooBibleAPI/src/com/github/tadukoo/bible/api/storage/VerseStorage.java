@@ -1,7 +1,7 @@
 package com.github.tadukoo.bible.api.storage;
 
 import com.github.tadukoo.bible.api.bible.BibleReference;
-import com.github.tadukoo.bible.api.constant.EnumBible;
+import com.github.tadukoo.bible.api.constant.BibleBooks;
 import com.github.tadukoo.bible.api.constant.EnumTranslation;
 
 import java.util.Map;
@@ -45,10 +45,10 @@ public interface VerseStorage{
 	/**
 	 * Stores the given verses
 	 *
-	 * @param book The {@link EnumBible book} of the verses to be stored
+	 * @param book The {@link BibleBooks book} of the verses to be stored
 	 * @param tran The {@link EnumTranslation translation} of the verses to be stored
 	 * @param prop A {@link Properties} object containing the verses to be stored, mapped as ch#v#
 	 * @throws Throwable If anything goes wrong in storing the verses
 	 */
-	void storeVerses(EnumBible book, EnumTranslation tran, Properties prop) throws Throwable;
+	void storeVerses(BibleBooks book, EnumTranslation tran, Properties prop) throws Throwable;
 }

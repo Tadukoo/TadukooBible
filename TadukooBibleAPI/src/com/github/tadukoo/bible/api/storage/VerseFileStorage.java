@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.Properties;
 
 import com.github.tadukoo.bible.api.bible.BibleReference;
-import com.github.tadukoo.bible.api.constant.EnumBible;
+import com.github.tadukoo.bible.api.constant.BibleBooks;
 import com.github.tadukoo.bible.api.constant.EnumTranslation;
 
 /**
@@ -35,11 +35,11 @@ public class VerseFileStorage implements VerseStorage{
 	/**
 	 * Gets the file name for the given book and translation
 	 *
-	 * @param book The {@link EnumBible book} to use for the file name
+	 * @param book The {@link BibleBooks book} to use for the file name
 	 * @param tran The {@link EnumTranslation translation} to use for the file name
 	 * @return The file name for the given book and translation
 	 */
-	private String getFileName(EnumBible book, EnumTranslation tran){
+	private String getFileName(BibleBooks book, EnumTranslation tran){
 		return folder + tran.getAbbreviation() + "/" +
 				book.getName().replaceAll(" ", "") + ".properties";
 	}
@@ -73,7 +73,7 @@ public class VerseFileStorage implements VerseStorage{
 	 * @return A Properties object representing the information in the file
 	 * @throws IOException If something goes wrong in grabbing the file
 	 */
-	private Properties getBook(EnumBible book, EnumTranslation tran) throws IOException{
+	private Properties getBook(BibleBooks book, EnumTranslation tran) throws IOException{
 		// Load the file as Properties from Bible/<translationAbbreviation>/<bookName>.properties
 		Properties prop = new Properties();
 		InputStream is = new FileInputStream(getFileName(book, tran));
@@ -90,7 +90,7 @@ public class VerseFileStorage implements VerseStorage{
 	 * @param verses The properties to add to the file
 	 * @throws IOException If something goes wrong in saving the file
 	 */
-	private void saveBook(EnumBible book, EnumTranslation tran, Properties verses)
+	private void saveBook(BibleBooks book, EnumTranslation tran, Properties verses)
 			throws IOException{
 		// Add the existing verses to the new ones (if there are any)
 		Properties prop = verses;
@@ -137,7 +137,7 @@ public class VerseFileStorage implements VerseStorage{
 	
 	/** {@inheritDoc} */
 	@Override
-	public void storeVerses(EnumBible book, EnumTranslation tran, Properties prop) throws Throwable{
+	public void storeVerses(BibleBooks book, EnumTranslation tran, Properties prop) throws Throwable{
 		saveBook(book, tran, prop);
 	}
 }

@@ -2,7 +2,7 @@ package com.github.tadukoo.bible.api.download;
 
 import com.github.tadukoo.bible.api.bible.BibleReference;
 import com.github.tadukoo.bible.api.bible.Settings;
-import com.github.tadukoo.bible.api.constant.EnumBible;
+import com.github.tadukoo.bible.api.constant.BibleBooks;
 import com.github.tadukoo.bible.api.constant.EnumTranslation;
 import com.github.tadukoo.bible.api.download.retrieval.RetrieveChapterFromSite;
 import com.github.tadukoo.bible.api.storage.VerseStorage;
@@ -28,7 +28,7 @@ public class DownloadTranParallel extends ParallelRunner<BibleChapter>{
 	@Override
 	protected void doWork(Queue<BibleChapter> todo, Queue<BibleChapter> done) throws InterruptedException{
 		// Send out work
-		for(EnumBible book: EnumBible.values()){
+		for(BibleBooks book: BibleBooks.values()){
 			for(int chp = 1; chp <= book.getNumChapters(); chp++){
 				BibleReference ref = BibleReference.builder()
 						.book(book).chapter(chp).translation(tran)
@@ -39,10 +39,10 @@ public class DownloadTranParallel extends ParallelRunner<BibleChapter>{
 			
 		// Receive work
 		Map<String, Properties> verses = new HashMap<>();
-		for(EnumBible book: EnumBible.values()){
+		for(BibleBooks book: BibleBooks.values()){
 			verses.put(book.getName(), new Properties());
 		}
-		for(EnumBible book: EnumBible.values()){
+		for(BibleBooks book: BibleBooks.values()){
 			for(int chp = 1; chp <= book.getNumChapters(); chp++){
 				BibleChapter chapter = done.dequeue();
 				BibleReference ref = chapter.getRef();
@@ -55,7 +55,7 @@ public class DownloadTranParallel extends ParallelRunner<BibleChapter>{
 			}
 		}
 		// Store results
-		for(EnumBible book: EnumBible.values()){
+		for(BibleBooks book: BibleBooks.values()){
 			try{
 				verseStorage.storeVerses(book, tran, verses.get(book.getName()));
 				System.out.println("Saved " + book.getName());

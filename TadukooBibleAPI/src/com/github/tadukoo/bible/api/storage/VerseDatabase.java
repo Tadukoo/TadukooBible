@@ -1,7 +1,7 @@
 package com.github.tadukoo.bible.api.storage;
 
 import com.github.tadukoo.bible.api.bible.BibleReference;
-import com.github.tadukoo.bible.api.constant.EnumBible;
+import com.github.tadukoo.bible.api.constant.BibleBooks;
 import com.github.tadukoo.bible.api.constant.EnumTranslation;
 
 import java.util.Map;
@@ -33,7 +33,7 @@ public class VerseDatabase implements VerseStorage{
 	
 	/** {@inheritDoc} */
 	@Override
-	public void storeVerses(EnumBible book, EnumTranslation tran, Properties prop){
+	public void storeVerses(BibleBooks book, EnumTranslation tran, Properties prop){
 	
 	}
 }

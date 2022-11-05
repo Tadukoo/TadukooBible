@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
-import com.github.tadukoo.bible.api.constant.EnumBible;
+import com.github.tadukoo.bible.api.constant.BibleBooks;
 import com.github.tadukoo.bible.api.constant.EnumTranslation;
 import com.github.tadukoo.bible.api.bible.BibleReference;
 import com.github.tadukoo.bible.api.verse.VerseRetrieval;
@@ -37,7 +37,7 @@ public class FindMissing extends Command{
 		Properties missing = new Properties();
 		int count = 1;
 		for(int i = 1; i <= 66; i++){
-			EnumBible book = EnumBible.fromInt(i);
+			BibleBooks book = BibleBooks.fromInt(i);
 			if(book == null){
 				logger.logDebugFine("Failed to find Bible book #" + i + " in EnumBible");
 				continue;
