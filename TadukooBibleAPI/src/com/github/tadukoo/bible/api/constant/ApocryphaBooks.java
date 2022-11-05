@@ -12,7 +12,7 @@ import java.util.List;
  * @author Logan Ferree (Tadukoo)
  * @version 2.0-Alpha1-SNAPSHOT
  */
-public enum EnumApocrypha{
+public enum ApocryphaBooks{
 	/**
 	 * <b><u>Tobit</u></b>
 	 * <br>Aliases: Tobias
@@ -157,24 +157,24 @@ public enum EnumApocrypha{
 	private final List<String> aliases;
 	
 	/**
-	 * Constructs an EnumApocrypha with the given book name.
+	 * Constructs an {@link ApocryphaBooks} with the given book name.
 	 * <br>Aliases is initialized as an empty list (since there are
 	 * no aliases).
 	 * 
 	 * @param name The name of the book
 	 */
-	EnumApocrypha(String name){
+	ApocryphaBooks(String name){
 		this.name = name;
 		aliases = new ArrayList<>();
 	}
 	
 	/**
-	 * Constructs an EnumApocrypha with the given book name and aliases.
+	 * Constructs an {@link ApocryphaBooks} with the given book name and aliases.
 	 * 
 	 * @param name The name of the book
 	 * @param aliases The aliases of this book
 	 */
-	EnumApocrypha(String name, List<String> aliases){
+	ApocryphaBooks(String name, List<String> aliases){
 		this.name = name;
 		this.aliases = aliases;
 	}
@@ -194,14 +194,14 @@ public enum EnumApocrypha{
 	}
 	
 	/**
-	 * Find an EnumApocrypha based on the book name.
+	 * Find an {@link ApocryphaBooks} object based on the book name.
 	 * 
 	 * @param bookName The book name to find
-	 * @return The found EnumApocrypha, or null if none could be found
+	 * @return The found {@link ApocryphaBooks}, or null if none could be found
 	 */
-	public static EnumApocrypha fromName(String bookName){
-		// Search through the existing EnumApocryphas for the book name
-		for(EnumApocrypha book: EnumApocrypha.values()){
+	public static ApocryphaBooks fromName(String bookName){
+		// Search through the existing ApocryphaBooks for the book name
+		for(ApocryphaBooks book: ApocryphaBooks.values()){
 			if(book.getName().equalsIgnoreCase(bookName)){
 				return book;
 			}
@@ -212,14 +212,14 @@ public enum EnumApocrypha{
 	}
 	
 	/**
-	 * Find an EnumApocrypha based on text that may be the book name or an alias.
+	 * Find an {@link ApocryphaBooks} object based on text that may be the book name or an alias.
 	 * 
 	 * @param text The text to find
-	 * @return The found EnumApocrypha, or null if none could be found
+	 * @return The found {@link ApocryphaBooks}, or null if none could be found
 	 */
-	public static EnumApocrypha fromString(String text){
-		// Search through the existing EnumApocrypha values for the text
-		for(EnumApocrypha book: EnumApocrypha.values()){
+	public static ApocryphaBooks fromString(String text){
+		// Search through the existing ApocryphaBooks values for the text
+		for(ApocryphaBooks book: ApocryphaBooks.values()){
 			// Check against the book name
 			if(book.getName().equalsIgnoreCase(text)){
 				return book;
@@ -236,9 +236,9 @@ public enum EnumApocrypha{
 		return null;
 	}
 	
-	public static EnumApocrypha fromInt(int i){
+	public static ApocryphaBooks fromInt(int i){
 		// TODO: Add range check
-		// Return the EnumApocrypha book corresponding to the given book number
-		return EnumApocrypha.values()[i+1];
+		// Return the ApocryphaBooks book corresponding to the given book number
+		return ApocryphaBooks.values()[i-1];
 	}
 }

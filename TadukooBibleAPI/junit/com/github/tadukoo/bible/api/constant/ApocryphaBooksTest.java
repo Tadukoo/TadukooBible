@@ -2,10 +2,10 @@ package com.github.tadukoo.bible.api.constant;
 
 import org.junit.jupiter.api.Test;
 
-import static com.github.tadukoo.bible.api.constant.EnumApocrypha.*;
+import static com.github.tadukoo.bible.api.constant.ApocryphaBooks.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class EnumApocryphaTest{
+public class ApocryphaBooksTest{
 	
 	@Test
 	public void testTobitName(){
