@@ -6,6 +6,7 @@ import com.github.tadukoo.bible.api.constant.BibleBooks;
 import com.github.tadukoo.bible.api.constant.EnumTranslation;
 import com.github.tadukoo.bible.api.download.retrieval.RetrieveChapterFromSite;
 import com.github.tadukoo.bible.api.storage.VerseStorage;
+import com.github.tadukoo.util.logger.EasyLogger;
 import com.github.tadukoo.util.parallel.ParallelRunner;
 import com.github.tadukoo.util.parallel.Queue;
 
@@ -18,8 +19,8 @@ public class DownloadTranParallel extends ParallelRunner<BibleChapter>{
 	private final RetrieveChapterFromSite verseRetriever;
 	private final EnumTranslation tran;
 	
-	public DownloadTranParallel(Settings settings, EnumTranslation tran){
-		super(1189, 10, DownloadTranWorker.class);
+	public DownloadTranParallel(EasyLogger logger, Settings settings, EnumTranslation tran){
+		super(logger, 1189, 10, DownloadTranWorker.class);
 		this.verseStorage = settings.getVerseStorage();
 		this.verseRetriever = settings.getVerseRetriever();
 		this.tran = tran;
